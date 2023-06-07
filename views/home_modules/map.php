@@ -201,7 +201,7 @@
                     </p>
                    </div>
                 </div>   
-                <div id="gu" class="point gu tippy" data-toggle="collapse" data-target="#collapseTwo" title="">
+                <div id="gu" class="point gu tippy" data-toggle="collapse" data-target="#collapseThree" title="">
                    <i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
                    <div id="SpeechBubble3">
                     <p style="font-size:9px;padding-top:10px;">
@@ -210,7 +210,7 @@
                     </p>
                    </div>
                 </div>   
-                <div id="ala" class="point ala tippy" data-toggle="collapse" data-target="#collapseTwo" title="">
+                <div id="ala" class="point ala tippy" data-toggle="collapse" data-target="#collapseFour" title="">
                    <i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
                    <div id="SpeechBubble4">
                     <p style="font-size:9px;padding-top:10px;">
@@ -219,7 +219,7 @@
                     </p>
                    </div>
                 </div>   
-                <div id="her" class="point her tippy" data-toggle="collapse" data-target="#collapseTwo" title="">
+                <div id="her" class="point her tippy" data-toggle="collapse" data-target="#collapseFive" title="">
                    <i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
                    <div id="SpeechBubble5">
                     <p style="font-size:9px;padding-top:10px;">

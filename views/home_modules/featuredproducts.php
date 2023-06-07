@@ -50,6 +50,11 @@ $cont = 0;
         </div>
       </div> 
     </div>
+    <div class="products-btn-box">
+          <a href="<?=base_url?>?pag=products">
+            Ver Productos
+          </a>
+        </div>
   </div>
 </section>
 <!-- end product section -->

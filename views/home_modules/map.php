@@ -15,14 +15,24 @@
           <div class="">
               <div class="map-container">
                 <img src="images/cr.png">
-                <div class="point sj tippy" data-toggle="collapse" data-target="#collapseOne" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati "></div>
-                <div class="point pt tippy" data-toggle="collapse" data-target="#collapseTwo" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati "></div>
+                <div class="point sj tippy" data-toggle="collapse" data-target="#collapseOne" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati ">
+                  <i style="font-size:32px;color:#76BD41;" class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="point pt tippy" data-toggle="collapse" data-target="#collapseTwo" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati ">
+                   <i style="font-size:32px;color:#76BD41;" class="fas fa-map-marker-alt"></i>
+                </div>
                 <div class="point gu tippy" data-toggle="collapse"
-                      data-target="#collapseThree" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati "></div>
+                      data-target="#collapseThree" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati ">
+                         <i style="font-size:32px;color:#76BD41;" class="fas fa-map-marker-alt"></i>
+                      </div>
                 <div class="point ala tippy" data-toggle="collapse"
-                      data-target="#collapseFour" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati "></div>
+                      data-target="#collapseFour" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati ">
+                         <i style="font-size:32px;color:#76BD41;" class="fas fa-map-marker-alt"></i>
+                      </div>
                 <div class="point her tippy" data-toggle="collapse"
-                      data-target="#collapseFive" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati "></div>      
+                      data-target="#collapseFive" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati ">
+                         <i style="font-size:32px;color:#76BD41;" class="fas fa-map-marker-alt"></i>
+                      </div>      
               </div>
           </div>
         </div>

@@ -26,13 +26,12 @@
                     <i class="fa-solid fa-cart-flatbed"></i>
                     <span>Products</span></a>
             </li>
-            <!--
+            
             <li class="nav-item active">
                 <a class="nav-link" href="quotes.php">
                     <i class="fa-solid fa-tag"></i>
                     <span>Quotes</span></a>
             </li>
-            -->
             <!--  
             <li class="nav-item active">
                 <a class="nav-link" href="features.php">

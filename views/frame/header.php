@@ -685,6 +685,32 @@ background: linear-gradient(0deg, rgba(16,79,158,0.9249824929971989) 0%, rgba(16
   color: #1fab89;
 }
 
+.products-btn-box{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.products-btn-box a{
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #104F9E;
+  color: #ffffff;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid #76BD41;
+}
+
+.products-btn-box a:hover{
+  background-color: transparent;
+  color: #76BD41;
+}
+
+
 .contact_section {
   max-width:1400px;
   margin-top:50px;
@@ -1030,7 +1056,7 @@ background: linear-gradient(0deg, rgba(16,79,158,0.9249824929971989) 0%, rgba(16
    position: absolute;
    width: 1.6rem;
    height: 1.6rem;
-   background-color: #76BD41;
+   background-color:transparent;
    border-radius: 50%;
    transition: all 0.3s ease;
    will-change: transform, box-shadow;

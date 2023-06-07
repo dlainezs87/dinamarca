@@ -1,5 +1,173 @@
 <!-- map section -->
 
+
+<style>
+  
+#SpeechBubble {
+  position: absolute;
+  transform-origin: 0% 100%;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 200px;
+  padding: 10px;
+  left: 10px;
+  top: -135px;
+  transform: scale(0);
+  animation-fill-mode: forwards;
+}
+
+#SpeechBubble::before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  bottom: -25px;
+  left: 5px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: white transparent transparent white;
+  transform: rotate(10deg);
+}
+
+#SpeechBubble2 {
+  position: absolute;
+  transform-origin: 0% 100%;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 200px;
+  padding: 10px;
+  left: 20px;
+  top: -135px;
+  transform: scale(0);
+  animation-fill-mode: forwards;
+  z-index:1000;
+}
+
+#SpeechBubble2::before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  bottom: -25px;
+  left: 5px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: white transparent transparent white;
+  transform: rotate(10deg);
+}
+
+#SpeechBubble3 {
+  position: absolute;
+  transform-origin: 0% 100%;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 200px;
+  padding: 10px;
+  left: 20px;
+  top: -135px;
+  transform: scale(0);
+  animation-fill-mode: forwards;
+  z-index:1000;
+}
+
+#SpeechBubble3::before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  bottom: -25px;
+  left: 5px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: white transparent transparent white;
+  transform: rotate(10deg);
+}
+#SpeechBubble4 {
+  position: absolute;
+  transform-origin: 0% 100%;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 200px;
+  padding: 10px;
+  left: 20px;
+  top: -135px;
+  transform: scale(0);
+  animation-fill-mode: forwards;
+  z-index:1000;
+}
+
+#SpeechBubble4::before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  bottom: -25px;
+  left: 5px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: white transparent transparent white;
+  transform: rotate(10deg);
+}
+#SpeechBubble5 {
+  position: absolute;
+  transform-origin: 0% 100%;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 200px;
+  padding: 10px;
+  left: 20px;
+  top: -135px;
+  transform: scale(0);
+  animation-fill-mode: forwards;
+  z-index:1000;
+}
+
+#SpeechBubble5::before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  bottom: -25px;
+  left: 5px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: white transparent transparent white;
+  transform: rotate(10deg);
+}
+@keyframes expand-bounce {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes shrink {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+</style>
+
   <section class="doctor_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
@@ -15,24 +183,51 @@
           <div class="">
               <div class="map-container">
                 <img src="images/cr.png">
-                <div class="point sj tippy" data-toggle="collapse" data-target="#collapseOne" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati ">
-                  <i style="font-size:32px;color:#76BD41;" class="fas fa-map-marker-alt"></i>
+                <div id="sj" class="point sj tippy" data-toggle="collapse" data-target="#collapseOne" title="">
+                  <i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
+                  <div id="SpeechBubble">
+                    <p style="font-size:9px;padding-top:10px;">
+                      <span style="font-size:12px;font-weight:bolder;">San Jose</span><br>
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                    </p>
+                  </div>
                 </div>
-                <div class="point pt tippy" data-toggle="collapse" data-target="#collapseTwo" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati ">
-                   <i style="font-size:32px;color:#76BD41;" class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="point gu tippy" data-toggle="collapse"
-                      data-target="#collapseThree" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati ">
-                         <i style="font-size:32px;color:#76BD41;" class="fas fa-map-marker-alt"></i>
-                      </div>
-                <div class="point ala tippy" data-toggle="collapse"
-                      data-target="#collapseFour" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati ">
-                         <i style="font-size:32px;color:#76BD41;" class="fas fa-map-marker-alt"></i>
-                      </div>
-                <div class="point her tippy" data-toggle="collapse"
-                      data-target="#collapseFive" title="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati ">
-                         <i style="font-size:32px;color:#76BD41;" class="fas fa-map-marker-alt"></i>
-                      </div>      
+                <div id="pt" class="point pt tippy" data-toggle="collapse" data-target="#collapseTwo" title="">
+                   <i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
+                   <div id="SpeechBubble2">
+                    <p style="font-size:9px;padding-top:10px;">
+                      <span style="font-size:12px;font-weight:bolder;">Puntarenas</span><br>
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                    </p>
+                   </div>
+                </div>   
+                <div id="gu" class="point gu tippy" data-toggle="collapse" data-target="#collapseTwo" title="">
+                   <i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
+                   <div id="SpeechBubble3">
+                    <p style="font-size:9px;padding-top:10px;">
+                      <span style="font-size:12px;font-weight:bolder;">Guanacaste</span><br>
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                    </p>
+                   </div>
+                </div>   
+                <div id="ala" class="point ala tippy" data-toggle="collapse" data-target="#collapseTwo" title="">
+                   <i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
+                   <div id="SpeechBubble4">
+                    <p style="font-size:9px;padding-top:10px;">
+                      <span style="font-size:12px;font-weight:bolder;">Alajuela</span><br>
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                    </p>
+                   </div>
+                </div>   
+                <div id="her" class="point her tippy" data-toggle="collapse" data-target="#collapseTwo" title="">
+                   <i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
+                   <div id="SpeechBubble5">
+                    <p style="font-size:9px;padding-top:10px;">
+                      <span style="font-size:12px;font-weight:bolder;">Heredia</span><br>
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                    </p>
+                   </div>
+                </div>   
               </div>
           </div>
         </div>
@@ -249,6 +444,106 @@
       //href="<?=base_url?>?pag=checkout&&step=shipping"
       
     });
+    </script>
+
+    <script type="text/javascript">
+      var rectangle = $("#sj");
+      var speechBubble = $("#SpeechBubble");
+
+      rectangle.hover(
+        function() {
+          speechBubble.css({
+            "animation-name": "expand-bounce",
+            "animation-duration": "0.25s"
+          });
+        },
+        function() {
+          speechBubble.css({
+            "animation-name": "shrink",
+            "animation-duration": "0.1s"
+          });
+        }
+      );
+    </script>
+
+    <script type="text/javascript">
+      var rectangle2 = $("#pt");
+      var speechBubble2 = $("#SpeechBubble2");
+
+      rectangle2.hover(
+        function() {
+          speechBubble2.css({
+            "animation-name": "expand-bounce",
+            "animation-duration": "0.25s"
+          });
+        },
+        function() {
+          speechBubble2.css({
+            "animation-name": "shrink",
+            "animation-duration": "0.1s"
+          });
+        }
+      );
+    </script>
+
+    <script type="text/javascript">
+      var rectangle3 = $("#gu");
+      var speechBubble3 = $("#SpeechBubble3");
+
+      rectangle3.hover(
+        function() {
+          speechBubble3.css({
+            "animation-name": "expand-bounce",
+            "animation-duration": "0.25s"
+          });
+        },
+        function() {
+          speechBubble3.css({
+            "animation-name": "shrink",
+            "animation-duration": "0.1s"
+          });
+        }
+      );
+    </script>
+
+    <script type="text/javascript">
+      var rectangle4 = $("#ala");
+      var speechBubble4 = $("#SpeechBubble4");
+
+      rectangle4.hover(
+        function() {
+          speechBubble4.css({
+            "animation-name": "expand-bounce",
+            "animation-duration": "0.25s"
+          });
+        },
+        function() {
+          speechBubble4.css({
+            "animation-name": "shrink",
+            "animation-duration": "0.1s"
+          });
+        }
+      );
+    </script>
+
+    <script type="text/javascript">
+      var rectangle5 = $("#her");
+      var speechBubble5 = $("#SpeechBubble5");
+
+      rectangle5.hover(
+        function() {
+          speechBubble5.css({
+            "animation-name": "expand-bounce",
+            "animation-duration": "0.25s"
+          });
+        },
+        function() {
+          speechBubble5.css({
+            "animation-name": "shrink",
+            "animation-duration": "0.1s"
+          });
+        }
+      );
     </script>
 
   <!-- end map section -->

@@ -1,10 +1,4 @@
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */?>
+<?php?>
 <!-- footer section -->
 <footer class="footer_section">
     <div class="container">
@@ -84,6 +78,9 @@
               <a class="" href="<?=base_url?>?pag=blog">
                 Blog
               </a>
+              <a class="" href="<?=base_url?>?pag=conventions">
+                Convenios
+              </a>
             </div>
           </div>
         </div>
@@ -134,18 +131,17 @@
     var multiItemSlider = (function () {
       return function (selector, config) {
         var
-          _mainElement = document.querySelector(selector), // основный элемент блока
-          _sliderWrapper = _mainElement.querySelector('.slider__wrapper'), // обертка для .slider-item
-          _sliderItems = _mainElement.querySelectorAll('.slider__item'), // элементы (.slider-item)
-          _sliderControls = _mainElement.querySelectorAll('.slider__control'), // элементы управления
-          _sliderControlLeft = _mainElement.querySelector('.slider__control_left'), // кнопка "LEFT"
-          _sliderControlRight = _mainElement.querySelector('.slider__control_right'), // кнопка "RIGHT"
-          _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), // ширина обёртки
-          _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width), // ширина одного элемента    
+          _mainElement = document.querySelector(selector), 
+          _sliderWrapper = _mainElement.querySelector('.slider__wrapper'), 
+          _sliderItems = _mainElement.querySelectorAll('.slider__item'), 
+          _sliderControls = _mainElement.querySelectorAll('.slider__control'), 
+          _sliderControlLeft = _mainElement.querySelector('.slider__control_left'), 
+          _sliderControlRight = _mainElement.querySelector('.slider__control_right'), 
+          _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), 
+          _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width),    
           _positionLeftItem = 0, // позиция левого активного элемента
-          _transform = 0, // значение транфсофрмации .slider_wrapper
-          _step = _itemWidth / _wrapperWidth * 100, // величина шага (для трансформации)
-          _items = []; // массив элементов
+          _step = _itemWidth / _wrapperWidth * 100, 
+          _items = []; 
 
         // наполнение массива _items
         _sliderItems.forEach(function (item, index) {
@@ -204,7 +200,7 @@
           _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';
         }
 
-        // обработчик события click для кнопок "назад" и "вперед"
+      
         var _controlClick = function (e) {
           var direction = this.classList.contains('slider__control_right') ? 'right' : 'left';
           e.preventDefault();
@@ -212,20 +208,20 @@
         };
 
         var _setUpListeners = function () {
-          // добавление к кнопкам "назад" и "вперед" обрботчика _controlClick для событя click
+        
           _sliderControls.forEach(function (item) {
             item.addEventListener('click', _controlClick);
           });
         }
 
-        // инициализация
+       
         _setUpListeners();
 
         return {
-          right: function () { // метод right
+          right: function () { 
             _transformItem('right');
           },
-          left: function () { // метод left
+          left: function () { 
             _transformItem('left');
           }
         }

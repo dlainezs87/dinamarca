@@ -2,7 +2,7 @@
  <li class="nav-item active">
                 <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Home</span></a>
+                    <span>Inicio</span></a>
             </li>
             <!-- <li class="nav-item active">
                 <a class="nav-link" href="categorias.php">
@@ -24,13 +24,19 @@
             <li class="nav-item active">
                 <a class="nav-link" href="servicios.php">
                     <i class="fa-solid fa-cart-flatbed"></i>
-                    <span>Products</span></a>
+                    <span>Productos</span></a>
             </li>
             
             <li class="nav-item active">
                 <a class="nav-link" href="quotes.php">
                     <i class="fa-solid fa-tag"></i>
-                    <span>Quotes</span></a>
+                    <span>Cotizaciones</span></a>
+            </li>
+
+             <li class="nav-item active">
+                <a class="nav-link" href="conventions.php">
+                    <i class="fas fa-hands-helping"></i>
+                    <span>Convenios</span></a>
             </li>
             <!--  
             <li class="nav-item active">

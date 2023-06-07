@@ -91,6 +91,14 @@ if(!isset($_GET['pag'])){
             }
             break; 
 
+         case 'conventions':
+            if(isset($_GET['id'])){
+                require_once"views/pages/conventions.php";
+            }else {
+                require_once"views/pages/conventions.php";
+            }
+            break; 
+
         default:
             break;
     }

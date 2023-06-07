@@ -13,7 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   
-  
+<!--JQUERY-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 <!-- bootstrap core css -->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -243,6 +244,7 @@ a:focus {
   border-radius: 5px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  font-weight: bolder;
 }
 
 .custom_nav-container .navbar-nav .nav-item .nav-link:hover {
@@ -1535,6 +1537,7 @@ background: linear-gradient(0deg, rgba(16,79,158,0.9249824929971989) 0%, rgba(16
     padding: 12px 16px;
     background-color: white;
     cursor: pointer;
+    font-weight: bolder;
   }
 
   .filter-btn:hover {
@@ -1542,6 +1545,33 @@ background: linear-gradient(0deg, rgba(16,79,158,0.9249824929971989) 0%, rgba(16
     color:white;
   }
 
+  /*---------------------------------MISION Y VISION----------------------------------*/
+
+  .container-mision{
+    height:380px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.28);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.28);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.28);padding:30px;
+  }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    .container-mision{
+      height:580px;
+    }
+  }
+
+  /*---------------------------------HERO PAGES----------------------------------*/
+
+  .hero-pages{
+    width:100%;
+    height:400px;
+  }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    .hero-pages{
+      height:600px;
+    }
+  }
 
  </style>
 </head>
@@ -1555,7 +1585,7 @@ background: linear-gradient(0deg, rgba(16,79,158,0.9249824929971989) 0%, rgba(16
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a style="width:15%" class="navbar-brand" href="index.html">
+          <a class="logo" style="width:15%" class="navbar-brand" href="index.html">
               <img style="width:100%;" src="images/logo-CD.png">
           </a>
 

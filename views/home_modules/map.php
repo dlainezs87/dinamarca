@@ -157,27 +157,27 @@
             </p>
           </div>
           <div class="form_container contact-form">
-            <form action="">
+            <form id="formInfo" method="POST">
               <div class="form-row">
                 <div class="col-lg-6">
                   <div>
-                    <input type="text" placeholder="Nombre:" />
-                  </div>
+                    <input name="name" type="text" id="form3Example1" placeholder="Nombre:" required/>
+                  </div> required 
                 </div>
                 <div class="col-lg-6">
                   <div>
-                    <input type="text" placeholder="Teléfono:" />
+                    <input name="phone" type="number" id="form3Example1" type="text" placeholder="Teléfono:" required/>
                   </div>
                 </div>
               </div>
               <div>
-                <input type="email" placeholder="Email:" />
+                <input name="email" type="email" id="form3Example1" type="email" placeholder="Email:" required/>
               </div>
               <div>
-                <input type="text" class="message-box" placeholder="Mensaje:" />
+                <input name="message" type="text" id="form3Example1" type="text" class="message-box" placeholder="Mensaje:" required />
               </div>
               <div class="btn_box">
-                <button>
+                <button id="enviarInfo" type="submit">
                   ENVIAR MENSAJE
                 </button>
               </div>
@@ -192,5 +192,53 @@
   </div>
   <!-- end contact section -->
   </section>
+
+  <script>
+    $( "#enviarInfo" ).on( "click", function( event ) {
+      event.preventDefault();
+     
+      $.ajax({
+        type : 'POST',
+        url : './email/controllerForm.php',
+        data : $('#formInfo').serialize(),
+         beforeSend:function(){
+                    Swal.fire({
+                        title: 'Por favor, espere !',
+                    html: 'Procesando su mensaje',// add html attribute if you want or remove
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        didOpen: () => {
+                          Swal.showLoading()
+                        }
+                      });
+             $("#enviarInfo").prop('disabled', true);
+                },
+       success:function(datos){
+           console.log(datos);
+           let dat = datos;
+                if(dat.status){
+                              Swal.fire({
+                                       icon: 'Mensaje enviado',
+                                       title: dat.msn,
+                                       text: 'Estaremos en contacto lo antes posible'
+                                    });
+                        
+                   window.setTimeout(function () {
+                        window.location.href = "./?pag=contact"
+                            }, 4000);
+
+                } else {
+                    Swal.fire({
+                    icon: 'error',
+                    title: dat.title,
+                    text: dat.msn
+                  })
+                }
+            } 
+    })
+      //href="<?=base_url?>?pag=checkout&&step=shipping"
+      
+    });
+    </script>
 
   <!-- end map section -->

@@ -109,7 +109,7 @@ $row = $query->fetch_assoc();
 			<div class="col-lg-6">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-6 col-12">
-	                 <form method="post" action="<?=base_url?>?pag=contact">
+	                 <form method="post" action="./?pag=quotes">
 							<?php
 		            		$sqlAll = "select * from servicios order by id ASC ";
 		                	$queryAll = $mysqli->query($sqlAll);
@@ -125,7 +125,7 @@ $row = $query->fetch_assoc();
 							  <input type="number" id="form12" name="amount" class="form-control" placeholder="Quantity (Only numbers)" />
 							</div>
 							<div style="padding-top:15px;" class="form-group purple-border">
-							  <textarea class="form-control" name="note" id="exampleFormControlTextarea4" rows="3" placeholder="Notes"></textarea>
+							  <textarea class="form-control" name="note" id="exampleFormControlTextarea4" rows="3" placeholder="Notas"></textarea>
 							</div>
 							<?php
 							}

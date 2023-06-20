@@ -1599,6 +1599,14 @@ background: linear-gradient(0deg, rgba(16,79,158,0.9249824929971989) 0%, rgba(16
     }
   }
 
+
+  #btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+  }
+
  </style>
 </head>
 <body>

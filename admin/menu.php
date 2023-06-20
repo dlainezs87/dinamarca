@@ -83,7 +83,7 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="faq.php">
+                <a class="nav-link" href="testimony.php">
                     <i class="fas fa-users"></i>
                     <span>Testimonios</span></a>
             </li>

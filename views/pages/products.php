@@ -9,7 +9,7 @@ $cont = 0;
 
   <div style="background:url('images/hero-pages-products.png');background-size:cover;
     background-repeat:no-repeat;background-position:center;" class="hero-pages">
-    <div class="container  ">
+    <div class="container">
       <div class="row">
         <div class="col-md-12">
           <h1 style="text-align:center; color:white;padding-top:80px;">Productos de Audiología | Clínica Dinamarca</h1>

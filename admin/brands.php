@@ -1,7 +1,7 @@
 <?php include("open.php");?>
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Brands</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Marcas</h1>
 
                     <?php 
                     if(isset($_GET['ok'])){ 
@@ -49,7 +49,7 @@
                                         while($row = $query->fetch_assoc()){
                                         ?>
                                         <tr>
-                                            <td><?php echo $row['name']?></td>
+                                            <td><?php echo $row['link']?></td>
                                             <td><img src="../assets/brands/<?php echo $row['imagen']?>" width="50px" alt="ilearn"></td>
                                         <td class="text-center">
                                             <a href="brands-edit.php?id=<?php echo $row['id']?>"><i class="fas fa-edit"></i></a> &nbsp;&nbsp;|&nbsp;&nbsp;

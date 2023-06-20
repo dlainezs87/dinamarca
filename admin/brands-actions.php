@@ -4,9 +4,9 @@ require_once '../config/conexion.php';
 if(isset($_POST['action'])){
     if($_POST['action']=="add"){
         //get values
-        $name = addslashes($_POST['name']);
+        $name = addslashes($_POST['link']);
         //insert
-        $sql = "insert into brands(name)
+        $sql = "insert into brands(link)
                             values(
                                 '".$name."'
                                

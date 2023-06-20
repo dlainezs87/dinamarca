@@ -13,33 +13,20 @@
 minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com</p>
 				<div class="slider-brands">
 					<div class="slide-track">
+						<?php
+			             include("config/conexion.php");
+			             $sql = "select * from brands order by id ASC";
+			             $query = $mysqli->query($sql);
+			       		 $i=1;
+
+			             while($row = $query->fetch_assoc()){
+			            ?>
 						<div class="slide">
-							<img src="images/1.png" height="150" width="150" alt="" />
+							<a href="<?=$row['link']?>"><img src="<?=base_url?>/assets/brands/<?=$row['imagen']?>" height="150" width="150" alt="" /></a>
 						</div>
-						<div class="slide">
-							<img src="images/2.png" height="150" width="150" alt="" />
-						</div>
-						<div class="slide">
-							<img src="images/3.png" height="150" width="150" alt="" />
-						</div>
-						<div class="slide">
-							<img src="images/1.png" height="150" width="150" alt="" />
-						</div>
-						<div class="slide">
-							<img src="images/2.png" height="150" width="150" alt="" />
-						</div>
-						<div class="slide">
-							<img src="images/3.png" height="150" width="150" alt="" />
-						</div>
-						<div class="slide">
-							<img src="images/1.png" height="150" width="150" alt="" />
-						</div>
-						<div class="slide">
-							<img src="images/2.png" height="150" width="150" alt="" />
-						</div>
-						<div class="slide">
-							<img src="images/3.png" height="150" width="150" alt="" />
-						</div>
+						<?php
+						}
+						?>
 					</div>
 				</div>
 				<br>

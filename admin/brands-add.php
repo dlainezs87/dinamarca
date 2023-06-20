@@ -12,8 +12,8 @@
                         <form id="add" method="post" action="brands-actions.php" enctype="multipart/form-data">
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Name:</label>
-                                <input type="text" required class="form-control" id="name" name="name" placeholder="">
+                                <label for="exampleInputEmail1">link:</label>
+                                <input type="text" required class="form-control" id="link" name="link" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Image: * Recommend: 600 x 600px</label>

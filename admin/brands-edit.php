@@ -22,8 +22,8 @@
                            
                         
                         <div class="form-group">
-                                <label for="exampleInputEmail1">Name:</label>
-                                <input type="text" required class="form-control" value="<?php echo $row['name']?>" id="name" name="name" placeholder="">
+                                <label for="exampleInputEmail1">link:</label>
+                                <input type="text" required class="form-control" value="<?php echo $row['link']?>" id="link" name="link" placeholder="">
                             </div>
 
             
@@ -33,7 +33,7 @@
                             if($row['imagen']!=""){?>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Current image:</label>
-                                <img src="../assets/brands/<?php echo $row['imagen']?>" width="100px" alt="Img blog">
+                                <img src="../assets/brands/<?php echo $row['imagen']?>" width="100px" alt="Img brand">
                             </div>
                             <?php } ?>
 
@@ -42,7 +42,7 @@
                                 <input class="form-control" name="imagen" id="imagen" type="file"/>
                             </div>
                             <button type="submit" class="btn btn-primary">Edit</button>
-                            <a href="blogs.php" class="btn btn-secondary">Back</a>
+                            <a href="brands.php" class="btn btn-secondary">Back</a>
                             <input type="hidden" name="action" id="action" value="edit">
                             <input type="hidden" name="id" id="id" value="<?php echo $id;?>">
                             </form>

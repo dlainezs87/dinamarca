@@ -77,6 +77,18 @@
             </li>-->
 
             <li class="nav-item active">
+                <a class="nav-link" href="brands.php">
+                    <i class="far fa-image"></i>
+                    <span>Marcas</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="faq.php">
+                    <i class="fas fa-users"></i>
+                    <span>Testimonios</span></a>
+            </li>
+
+            <li class="nav-item active">
                 <a class="nav-link" href="blogs.php">
                     <i class="fas fa-comment"></i>
                     <span>Blogs</span></a>

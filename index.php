@@ -98,6 +98,28 @@ if(!isset($_GET['pag'])){
                 require_once"views/pages/conventions.php";
             }
             break; 
+        case 'mapa':
+            $Mapa = [];
+            $Servicios = [];
+            $sql = "select * from mapa order by Nombre ASC";
+            $query = $mysqli->query($sql);
+            while($row = $query->fetch_assoc()){
+                array_push($Mapa, $row);
+            }
+            $jsonData = json_encode($Mapa);
+
+            $sql = "SELECT m.id AS idMapa, m.canton, m.provincia, s.id AS idServicio, titulo 
+                    FROM serviciovsmapa sm 
+                    LEFT JOIN mapa m ON (sm.idMapa = m.id) 
+                    LEFT JOIN servicios s ON (sm.idServicio = s.id);";
+            $query = $mysqli->query($sql);
+            while($row = $query->fetch_assoc()){
+                array_push($Servicios, $row);
+            }
+            $mysqli->close();
+            $jsonServicios = json_encode($Servicios);
+            require_once"views/pages/mapa.php";
+        break; 
 
         default:
             break;

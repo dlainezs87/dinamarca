@@ -12,8 +12,6 @@ if($usuario!="" and $contrasena!=""){
            if ($query->num_rows > 0) {
   // output data of each row
   while($row = $query->fetch_assoc()) {
-      var_dump(md5($contrasena));
-     
        if((md5($contrasena)==$row['contrasena'])){ 
 
         session_start();

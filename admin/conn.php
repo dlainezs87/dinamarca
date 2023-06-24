@@ -3,7 +3,7 @@
 $server = "localhost";
 $user = "root";
 $pass = "";
-$database = "dbangferseguridad";
+$database = "dinamarca";
 
 $mysqli = new mysqli($server,$user,$pass,$database);
 

@@ -96,6 +96,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
     var markers = [];
     var services = [];
     var validatorServices = [];
+    var namesMain = [];
 
     var sj = [];
     var pt = [];
@@ -118,7 +119,50 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         let main = {}
         let pointsOfInterest = [];
 
-        for (let datMap of jsonData) {
+        for (let datMap of jsonData){
+            if(datMap.nombre){
+                var point = {
+                    name: datMap.nombre,
+                    provincia: datMap.provincia,
+                    canton: datMap.canton,
+                    position: {
+                        lat: parseFloat(datMap.latitud),
+                        lng: parseFloat(datMap.longitud)
+                    },
+                    photo: base_url + 'images/mapa/' + datMap.imagen,
+                    servicios: '',
+                    texto:datMap.texto
+                };
+
+                var marker = new google.maps.Marker({
+                    position: point.position,
+                    map: map,
+                    icon: {
+                        url: point.photo, // Utilizar la foto como icono
+                        scaledSize: new google.maps.Size(50, 50), // Tamaño del marcador
+                        origin: new google.maps.Point(0, 0), // Punto de origen de la imagen
+                        anchor: new google.maps.Point(25, 25) // Punto de anclaje del marcador
+                    }
+                });
+
+                // Agregar información adicional al marcador (nombre y foto)
+                var content = '<h3>' + point.name + '</h3>' +
+                    '<img src="' + point.photo + '" alt="' + point.name + '">';
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: content
+                });
+
+                // Mostrar información adicional al hacer clic en el marcador
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+                namesMain.push({
+                    'nombre':datMap.nombre,
+                    'point':marker
+                });
+
+            }
             if (datMap.principal == 'Y') {
                 main = datMap;
             } else {
@@ -387,6 +431,8 @@ echo '<script> var base_url = "' . base_url . '"</script>';
             infoWindow.open(map, marker);
         });
 
+        sj.push(marker);
+
         pointsOfInterest.forEach(function(point) {
             // Filtrar los puntos de interés que coinciden con los criterios seleccionados
             var marker = new google.maps.Marker({
@@ -417,6 +463,10 @@ echo '<script> var base_url = "' . base_url . '"</script>';
             // Agregar el marcador a la lista de marcadores
             markers.push(marker);
         });
+        console.log(al);
+    }
+    function compararNombres(nombre, variable) {
+        return nombre.toLowerCase().includes(variable.toLowerCase());
     }
 
     // Función para aplicar los filtros y centrar el mapa en el punto que coincide
@@ -427,130 +477,139 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         var serviciosFilter = document.getElementById('servicios').value;
         var nombreFilter = document.getElementById('nombre').value;
 
-        console.log(jsonServicios);
-
         var filteredMarkers = [];
+        if(nombreFilter != '' && nombreFilter != undefined){
+            for(let sitename of namesMain){
+                if(compararNombres(sitename.nombre, nombreFilter)){
+                    $('#provincias').prepend($('<option value="">Seleccione una provincia</option>'));
+                    $('#provincias').val('');
+                    filteredMarkers.push(sitename.point);
+                }
+            }
+        }
         if(cantonFilter == 'all'){
-            switch (provinciaFilter) {
-                case 'San José':
-                    if(serviciosFilter != 'all'){
-                        for(let service of jsonServicios){
-                            if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
-                                filteredMarkers = sj.filter(function(marker) {
-                                    var point = marker.getPosition();
-                                    return point;
-                                });
+            if(provinciaFilter != ''){
+                switch (provinciaFilter) {
+                    case 'San José':
+                        if(serviciosFilter != 'all'){
+                            for(let service of jsonServicios){
+                                if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
+                                    filteredMarkers = sj.filter(function(marker) {
+                                        var point = marker.getPosition();
+                                        return point;
+                                    });
+                                }
                             }
+                        }else{
+                            filteredMarkers = sj.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
                         }
-                    }else{
-                        filteredMarkers = sj.filter(function(marker) {
-                            var point = marker.getPosition();
-                            return point;
-                        });
-                    }
-                break;
-                case 'Alajuela':
-                    if(serviciosFilter != 'all'){
-                        for(let service of jsonServicios){
-                            if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
-                                filteredMarkers = al.filter(function(marker) {
-                                    var point = marker.getPosition();
-                                    return point;
-                                });
+                    break;
+                    case 'Alajuela':
+                        if(serviciosFilter != 'all'){
+                            for(let service of jsonServicios){
+                                if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
+                                    filteredMarkers = al.filter(function(marker) {
+                                        var point = marker.getPosition();
+                                        return point;
+                                    });
+                                }
                             }
+                        }else{
+                            filteredMarkers = al.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
                         }
-                    }else{
-                        filteredMarkers = al.filter(function(marker) {
-                            var point = marker.getPosition();
-                            return point;
-                        });
-                    }
-                break;
-                case 'Cartago':
-                    if(serviciosFilter != 'all'){
-                        for(let service of jsonServicios){
-                            if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
-                                filteredMarkers = ca.filter(function(marker) {
-                                    var point = marker.getPosition();
-                                    return point;
-                                });
+                    break;
+                    case 'Cartago':
+                        if(serviciosFilter != 'all'){
+                            for(let service of jsonServicios){
+                                if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
+                                    filteredMarkers = ca.filter(function(marker) {
+                                        var point = marker.getPosition();
+                                        return point;
+                                    });
+                                }
                             }
+                        }else{
+                            filteredMarkers = ca.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
                         }
-                    }else{
-                        filteredMarkers = ca.filter(function(marker) {
-                            var point = marker.getPosition();
-                            return point;
-                        });
-                    }
-                break;
-                case 'Puntarenas':
-                    if(serviciosFilter != 'all'){
-                        for(let service of jsonServicios){
-                            if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
-                                filteredMarkers = pt.filter(function(marker) {
-                                    var point = marker.getPosition();
-                                    return point;
-                                });
+                    break;
+                    case 'Puntarenas':
+                        if(serviciosFilter != 'all'){
+                            for(let service of jsonServicios){
+                                if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
+                                    filteredMarkers = pt.filter(function(marker) {
+                                        var point = marker.getPosition();
+                                        return point;
+                                    });
+                                }
                             }
+                        }else{
+                            filteredMarkers = pt.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
                         }
-                    }else{
-                        filteredMarkers = pt.filter(function(marker) {
-                            var point = marker.getPosition();
-                            return point;
-                        });
-                    }
-                break;
-                case 'Limón':
-                    if(serviciosFilter != 'all'){
-                        for(let service of jsonServicios){
-                            if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
-                                filteredMarkers = li.filter(function(marker) {
-                                    var point = marker.getPosition();
-                                    return point;
-                                });
+                    break;
+                    case 'Limón':
+                        if(serviciosFilter != 'all'){
+                            for(let service of jsonServicios){
+                                if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
+                                    filteredMarkers = li.filter(function(marker) {
+                                        var point = marker.getPosition();
+                                        return point;
+                                    });
+                                }
                             }
+                        }else{
+                            filteredMarkers = li.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
                         }
-                    }else{
-                        filteredMarkers = li.filter(function(marker) {
-                            var point = marker.getPosition();
-                            return point;
-                        });
-                    }
-                break;
-                case 'Guanacaste':
-                    if(serviciosFilter != 'all'){
-                        for(let service of jsonServicios){
-                            if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
-                                filteredMarkers = gt.filter(function(marker) {
-                                    var point = marker.getPosition();
-                                    return point;
-                                });
+                    break;
+                    case 'Guanacaste':
+                        if(serviciosFilter != 'all'){
+                            for(let service of jsonServicios){
+                                if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
+                                    filteredMarkers = gt.filter(function(marker) {
+                                        var point = marker.getPosition();
+                                        return point;
+                                    });
+                                }
                             }
+                        }else{
+                            filteredMarkers = gt.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
                         }
-                    }else{
-                        filteredMarkers = gt.filter(function(marker) {
-                            var point = marker.getPosition();
-                            return point;
-                        });
-                    }
-                break;
-                case 'Heredia':
-                    if(serviciosFilter != 'all'){
-                        for(let service of jsonServicios){
-                            if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
-                                filteredMarkers = he.filter(function(marker) {
-                                    var point = marker.getPosition();
-                                    return point;
-                                });
+                    break;
+                    case 'Heredia':
+                        if(serviciosFilter != 'all'){
+                            for(let service of jsonServicios){
+                                if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
+                                    filteredMarkers = he.filter(function(marker) {
+                                        var point = marker.getPosition();
+                                        return point;
+                                    });
+                                }
                             }
+                        }else{
+                            filteredMarkers = he.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
                         }
-                    }else{
-                        filteredMarkers = he.filter(function(marker) {
-                            var point = marker.getPosition();
-                            return point;
-                        });
-                    }
-                break;
+                    break;
+                }
             }
         }else{
             for(let cant of mainCantones){

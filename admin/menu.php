@@ -65,6 +65,12 @@
             </li>
 
             <li class="nav-item active">
+                <a class="nav-link" href="mapa.php">
+                <i class="fa-solid fa-map"></i>
+                    <span>Mapa</span></a>
+            </li>
+
+            <li class="nav-item active">
                 <a class="nav-link" href="faq.php">
                     <i class="fas fa-question-circle"></i>
                     <span>FAQ</span></a>

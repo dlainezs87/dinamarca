@@ -1641,6 +1641,9 @@ background: linear-gradient(0deg, rgba(16,79,158,0.9249824929971989) 0%, rgba(16
               <li class="nav-item">
                 <a class="nav-link" href="<?=base_url?>?#contact">Contacto</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?=base_url?>?pag=mapa">Mapa</a>
+              </li>
 
               <div class="d-none d-sm-none d-md-none d-lg-block" style="width:1px;height:20px;background:black;margin:5px 40px 0 20px;"></div>
 

@@ -7,7 +7,7 @@
                     if(isset($_GET['ok'])){ 
                     ?>
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    Successfully
+                    Proceso realizado con éxito
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -18,7 +18,7 @@
                     if(isset($_GET['err'])){ 
                     ?>
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    No se agregó el regitro, vuelva a intentarlo.
+                    No se agregó el registro, vuelva a intentarlo.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

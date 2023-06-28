@@ -58,9 +58,11 @@
                         </div>
                     </div>
 
-                    <script>  
-                 
-            </script>
+                    <script src="./js/distribucion-cr.js"></script>
+                    <script src="./js/formulario.js"></script>
+                    <script>
+                        CKEDITOR.replace('contenido');
+                    </script>
 
                 <?php 
                 $mysqli->close();

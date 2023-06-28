@@ -36,7 +36,7 @@
             <div class="row">
               <div class="col-md-12 mt-3 mb-2">
                   <div class="row">
-                    <div class="col-md-4"><img style="width: 100%;" src="images/valor1.png"></div>
+                    <div class="col-md-4"><img style="width: 100%;" src="images/valor1.jpg"></div>
                     <div class="col-md-8" style="border-left: 0.5px solid;border-color:rgba(0, 0, 0, 0.1);">
                       <h6 style="font-weight:bolder;padding-top:10px;">Humanismos:</h6>
                       <p style="font-size:12px;"> Ser humano, significa haber desarrollado dentro de sí mismo la capacidad de poder dar a los demás algo bueno y positivo; es por ello que nos enfocamos en brindar a nuestros pacientes un trato amable, cálido y familiar.</p>
@@ -47,7 +47,7 @@
             <div class="row">
               <div class="col-md-12 mt-3 mb-2">
                   <div class="row">
-                    <div class="col-md-4"><img style="width: 100%;" src="images/valor2.png"></div>
+                    <div class="col-md-4"><img style="width: 100%;" src="images/valor2.jpg"></div>
                     <div class="col-md-8" style="border-left: 0.5px solid;border-color:rgba(0, 0, 0, 0.1);">
                       <h6 style="font-weight:bolder;padding-top:10px;">Compromiso:</h6>
                       <p style="font-size:12px;"> La rehabilitación auditiva es nuestra prioridad, por lo que nuestro compromiso es ayudar a las personas con dificultades auditivas.</p>
@@ -58,7 +58,7 @@
             <div class="row">
               <div class="col-md-12 mt-3 mb-2">
                   <div class="row">
-                    <div class="col-md-4"><img style="width: 100%;" src="images/valor3.png"></div>
+                    <div class="col-md-4"><img style="width: 100%;" src="images/valor3.jpg"></div>
                     <div class="col-md-8" style="border-left: 0.5px solid;border-color:rgba(0, 0, 0, 0.1);">
                       <h6 style="font-weight:bolder;padding-top:10px;">Profesionalismo:</h6>
                       <p style="font-size:12px;"> Nuestro personal está constituido por profesionales altamente calificados, sometidos a capacitaciones continuas, para ofrecerles a nuestros pacientes los avances de la actualidad.</p>
@@ -71,7 +71,7 @@
             <div class="row">
               <div class="col-md-12 mt-3 mb-2">
                   <div class="row">
-                    <div class="col-md-4"><img style="width: 100%;" src="images/valor4.png"></div>
+                    <div class="col-md-4"><img style="width: 100%;" src="images/valor4.jpg"></div>
                     <div class="col-md-8" style="border-left: 0.5px solid;border-color:rgba(0, 0, 0, 0.1);">
                       <h6 style="font-weight:bolder;padding-top:10px;">Vocación:</h6>
                       <p style="font-size:12px;"> Contamos con un personal inspirado, lo cual se ve reflejado en la actitud de colaboración permanente.</p>
@@ -80,7 +80,7 @@
               </div>
               <div class="col-md-12 mt-3 mb-2">
                   <div class="row">
-                    <div class="col-md-4"><img style="width: 100%;" src="images/valor5.png"></div>
+                    <div class="col-md-4"><img style="width: 100%;" src="images/valor5.jpg"></div>
                     <div class="col-md-8" style="border-left: 0.5px solid;border-color:rgba(0, 0, 0, 0.1);">
                       <h6 style="font-weight:bolder;padding-top:10px;">Transparencia:</h6>
                       <p style="font-size:12px;"> Lo ponemos en práctica, en nuestras acciones, con un trabajo organizado e informes claros, seguido de una comunicación con nuestros clientes que se desarrolla en un ambiente que propicia un mensaje transparente.</p>
@@ -89,7 +89,7 @@
               </div>
               <div class="col-md-12 mt-3 mb-2">
                   <div class="row">
-                    <div class="col-md-4"><img style="width: 100%;" src="images/valor1.png"></div>
+                    <div class="col-md-4"><img style="width: 100%;" src="images/valor1.jpg"></div>
                     <div class="col-md-8" style="border-left: 0.5px solid;border-color:rgba(0, 0, 0, 0.1);">
                       <h6 style="font-weight:bolder;padding-top:10px;">Responsabilidad:</h6>
                       <p style="font-size:12px;"> El trabajo es desempeñado responsablemente, con diligencia, seriedad y prudencia, convencidos de que debemos dar lo mejor en cada una de las labores que realizamos.</p>

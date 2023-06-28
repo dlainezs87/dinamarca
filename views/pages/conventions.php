@@ -1,4 +1,4 @@
-<!----------------Section videos------------->
+<!----------------Section conventions------------->
 
 <?php
 ?>
@@ -25,15 +25,12 @@
                 <div class="col-lg-4 mx-auto mt-5">
                         <div style="padding:30px;box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.16);-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.16);-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.16);border-radius: 10px;">
                             <div style="width:60%;margin:0 auto;padding-bottom:20px;">
-	                            <img style="width:100%;" src="assets/convenios/<?php echo ($row['imagen']);?>">
+	                            <a href="<?=base_url?>?pag=convention-detail&&id=<?=$row['id']?>"><img style="width:100%;" src="assets/convenios/<?php echo ($row['imagen']);?>"></a>
                             </div>
                             <div class="text-center">
                             	<h5 style="font-weight:bolder;">
                                     <?php echo ($row['titulo']);?>
                                 </h5>
-                                <p style="font-size:12px;">
-                                    <?php echo ($row['descripcion']);?>
-                                </p>
                             </div>
                         </div>
                 </div>

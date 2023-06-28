@@ -98,6 +98,13 @@ if(!isset($_GET['pag'])){
                 require_once"views/pages/conventions.php";
             }
             break; 
+         case 'convention-detail':
+            if(isset($_GET['id'])){
+                require_once"views/pages/convention-detail.php";
+            }else {
+                require_once"views/pages/convention-detail.php";
+            }
+            break; 
         case 'mapa':
             $Mapa = [];
             $Servicios = [];

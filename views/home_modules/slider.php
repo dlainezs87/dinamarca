@@ -15,7 +15,7 @@
                       Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="http://www.integratum-cloud.com:8080/ords/f?p=120:2:5634513184645:::::" class="btn1">
                         Agende su valoración
                       </a>
                     </div>
@@ -36,7 +36,7 @@
                       Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="http://www.integratum-cloud.com:8080/ords/f?p=120:2:5634513184645:::::" class="btn1">
                         Agende test de audición
                       </a>
                     </div>
@@ -57,7 +57,7 @@
                       Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="http://www.integratum-cloud.com:8080/ords/f?p=120:2:5634513184645:::::" class="btn1">
                         Agendar Cita
                       </a>
                     </div>

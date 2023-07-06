@@ -234,7 +234,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-6 col-lg-4 mx-auto">
+			<!--<div class="col-sm-6 col-lg-4 mx-auto">
 				<div class="box">
 					<div class="accordion" id="accordionExample">
 						<div class="card z-depth-0 bordered">
@@ -339,7 +339,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
 		</div>
 	</div>
 	

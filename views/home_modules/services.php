@@ -29,7 +29,7 @@
                 <p>
                   fact that a reader will be distracted by the readable page when looking at its layout.
                 </p>
-                <a style="color:black;font-weight:bolder;" href="">Agendar cita <i style="color:#76BD41;" class="fas fa-angle-double-right"></i></a>
+                <a style="color:black;font-weight:bolder;" href="http://www.integratum-cloud.com:8080/ords/f?p=120:2:5634513184645:::::">Agendar cita <i style="color:#76BD41;" class="fas fa-angle-double-right"></i></a>
               </div>
             </div>
           </div>
@@ -43,7 +43,7 @@
                 <p>
                   fact that a reader will be distracted by the readable page when looking at its layout.
                 </p>
-                <a style="color:black;font-weight:bolder;" href="">Agendar cita <i style="color:#76BD41;" class="fas fa-angle-double-right"></i></a>
+                <a style="color:black;font-weight:bolder;" href="http://www.integratum-cloud.com:8080/ords/f?p=120:2:5634513184645:::::">Agendar cita <i style="color:#76BD41;" class="fas fa-angle-double-right"></i></a>
               </div>
             </div>
           </div>
@@ -57,7 +57,7 @@
                 <p>
                   fact that a reader will be distracted by the readable page when looking at its layout.
                 </p>
-                <a style="color:black;font-weight:bolder;" href="">Agendar cita <i style="color:#76BD41;" class="fas fa-angle-double-right"></i></a>
+                <a style="color:black;font-weight:bolder;" href="http://www.integratum-cloud.com:8080/ords/f?p=120:2:5634513184645:::::">Agendar cita <i style="color:#76BD41;" class="fas fa-angle-double-right"></i></a>
               </div>
             </div>
           </div>

@@ -1,17 +1,17 @@
 <?php include("open.php"); ?>
-
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Mapa</h1>
 <p class="mb-4">Agregar Nuevo</p>
-
-
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
-
     <div class="card-body">
         <form id="add" method="post" action="mapa-actions.php" enctype="multipart/form-data">
             <div class="row">
-                <div class="col-4 form-group">
+                <div class="col-3 form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                </div>
+                <div class="col-3 form-group">
                     <label for="principal">Principal:</label>
                     <select name="principal" class="form-select form-control" id="principal">
                         <option value="-1">Seleccione una opci&oacute;n</option>
@@ -19,11 +19,11 @@
                         <option value="N" selected>Sucursal</option>
                     </select>
                 </div>
-                <div class="col-4 form-group">
+                <div class="col-3 form-group">
 					<label for="slt-provincias">Provincia</label>
 					<select id="slt-provincias" name="provincia" class="form-control width100" required></select>
 				</div>
-				<div class="col-4 form-group">
+				<div class="col-3 form-group">
 					<label for="slt-cantones">Cantón</label>
 					<select id="slt-cantones" name="canton" class="form-control width100">
 						<option value="Todos">Todos</option>
@@ -31,15 +31,19 @@
 				</div>
             </div>
             <div class="row">
-                <div class="col-4 form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                <div class="col-3 form-group">
+                    <label for="whatsapp">Whatsapp:</label>
+                    <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="Whatsapp">
                 </div>
-                <div class="col-4 form-group">
+                <div class="col-3 form-group">
+                    <label for="url">URL:</label>
+                    <input type="text" class="form-control" id="url" name="url" placeholder="http://www.ejemplo.com">
+                </div>
+                <div class="col-3 form-group">
                     <label for="latitud">Latitud:</label>
                     <input type="text" class="form-control" id="latitud" name="latitud" placeholder="Latitud">
                 </div>
-                <div class="col-4 form-group">
+                <div class="col-3 form-group">
                     <label for="longitud">Longitud:</label>
                     <input type="text" class="form-control" id="longitud" name="longitud" placeholder="Longitud">
                 </div>

@@ -19,7 +19,11 @@ include("../config/parameters.php");
         <div class="card-body">
             <form id="add" method="post" action="mapa-actions.php" enctype="multipart/form-data">
                 <div class="row">
-                    <div class="col-4 form-group">
+                    <div class="col-3 form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" value="<?php echo $row['nombre'] ?>" id="nombre" name="nombre" placeholder="Nombre">
+                    </div>
+                    <div class="col-3 form-group">
                         <label for="principal">Principal:</label>
                         <select name="principal" class="form-select form-control" id="principal">
                             <option value="-1">Seleccione una opci&oacute;n</option>
@@ -27,12 +31,12 @@ include("../config/parameters.php");
                             <option value="N" <?php echo ($row['principal'] == 'N') ? 'selected': '' ?>>Sucursal</option>
                         </select>
                     </div>
-                    <div class="col-4 form-group">
+                    <div class="col-3 form-group">
                         <label for="slt-provincias">Provincia</label>
                         <select id="slt-provincias" name="provincia" class="form-control width100"></select>
                         <input type="hidden" value="<?php echo $row['provincia'] ?>" id="provinciaSelected">
                     </div>
-                    <div class="col-4 form-group">
+                    <div class="col-3 form-group">
                         <label for="slt-cantones">Cantón</label>
                         <select id="slt-cantones" name="canton" class="form-control width100">
                             <option value="Todos">Todos</option>
@@ -41,15 +45,19 @@ include("../config/parameters.php");
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4 form-group">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" value="<?php echo $row['nombre'] ?>" id="nombre" name="nombre" placeholder="Nombre">
+                    <div class="col-3 form-group">
+                        <label for="whatsapp">Whatsapp:</label>
+                        <input type="text" class="form-control" value="<?php echo $row['whatsapp'] ?>" id="whatsapp" name="whatsapp" placeholder="Whatsapp:">
                     </div>
-                    <div class="col-4 form-group">
+                    <div class="col-3 form-group">
+                        <label for="url">URL:</label>
+                        <input type="text" class="form-control" value="<?php echo $row['url'] ?>" id="url" name="url" placeholder="http://www.ejemplo.com">
+                    </div>
+                    <div class="col-3 form-group">
                         <label for="latitud">Latitud:</label>
                         <input type="text" class="form-control" value="<?php echo $row['latitud'] ?>" id="latitud" name="latitud" placeholder="Latitud">
                     </div>
-                    <div class="col-4 form-group">
+                    <div class="col-3 form-group">
                         <label for="longitud">Longitud:</label>
                         <input type="text" class="form-control" value="<?php echo $row['longitud'] ?>" id="longitud" name="longitud" placeholder="Longitud">
                     </div>

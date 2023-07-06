@@ -9,7 +9,7 @@ if(!isset($_SESSION['sesid'])){
 <html lang='es'>
 <head>  
    
-<title>Admin KitCab</title>
+<title>Admin Dinamarca</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,user scalable=no, initial-scale=1.0, maximun-scale=1.0">
   <meta name="description" content="">

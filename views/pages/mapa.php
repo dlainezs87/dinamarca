@@ -93,6 +93,24 @@ echo '<script> var base_url = "' . base_url . '"</script>';
     .grey2{
         background-color: #f0efef;
     }
+    .al{
+        display: none;
+    }
+    .ca{
+        display: none;
+    }
+    .he{
+        display: none;
+    }
+    .li{
+        display: none;
+    }
+    .gu{
+        display: none;
+    }
+    .pu{
+        display: none;
+    }
     @media (max-width: 479px) {
         #filter {
             background-color: #4b7bb6;
@@ -121,7 +139,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
             <div class="col-md-3">
                 <label for="cantones">Cantón</label>
                 <select id="cantones" name="cantones" class="form-control width100">
-                    <option value="all">Todos</option>
+                    <option value="all" selected>Todos</option>
                 </select>
             </div>
             <div class="col-md-3">
@@ -159,10 +177,37 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     if($counter>4){
                         $counter = 1;
                     }
+                    $url = (!empty($map['url'])) ? $map['url']: base_url;
+                    $dominio = (!empty($url)) ? parse_url($url, PHP_URL_HOST): base_url;
+
                     $string = $map['nombre'];
                     $primeraLetra = strtoupper(substr($string, 0, 1));
+                    $prov = '';
+                    switch ($map['provincia']){
+                        case 'San Jose':
+                            $prov = 'sj';
+                        break;
+                        case 'Alajuela':
+                            $prov = 'al';
+                        break;
+                        case 'Cartago':
+                            $prov = 'ca';
+                        break;
+                        case 'Heredia':
+                            $prov = 'he';
+                        break;
+                        case 'Limon':
+                            $prov = 'li';
+                        break;
+                        case 'Guanacaste':
+                            $prov = 'gu';
+                        break;
+                        case 'Puntarenas':
+                            $prov = 'pu';
+                        break;
+                    }
                     ?>
-                    <div class="locations mt-2" onclick="showInfo(<?= $info ?>);">
+                    <div class="locations mt-2 <?= $prov ?>" onclick="showInfo(<?= $info ?>);">
                         <div class="col-2 color<?= $counter ?>">
                             <label class="mainLetter"><?= $primeraLetra ?></label>
                         </div>
@@ -173,8 +218,12 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                             <label><?= $map['texto'] ?></label>
                         </div>
                     </div>
-                    <div style="display:none;height: 5em;padding-top: 3%;padding-left: 1%;" id="counter<?= $info ?>">
-                        <?= 'Horario de atencion: ' . $map['horario'] . '. Para mas informacion al telefono: ' . $map['telefono'] . ' con ' . $map['encargado'] ?>
+                    <div style="display:none;height: 5em;padding-top: 1%;padding-left: 1%;" id="counter<?= $info ?>">
+                        <?= 'Visite nuestro sitio web en <a href="' . $url . 
+                            '" target="_blank">' . $dominio . '</a><br>Nuestro horario de atención: ' . $map['horario'] . 
+                            '. <br> Para más información al teléfono: ' . $map['telefono'] . ' con ' . $map['encargado'] . 
+                            ' o escríbanos a nuestra aplicación de <a href="https://wa.me/' . $map['whatsapp'] . '" target="_blank" class="btn-whatsapp">WhatsApp</a>' 
+                        ?>
                     </div>
                 <?php
                     $counter++;
@@ -277,7 +326,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                 };
                 pointsOfInterest.push(point);
 
-                if(datMap.provincia == 'San José'){
+                if(datMap.provincia == 'San Jose'){
                     var marker = new google.maps.Marker({
                         position: point.position,
                         map: map,
@@ -541,7 +590,6 @@ echo '<script> var base_url = "' . base_url . '"</script>';
 
             markers.push(marker);
         });
-        console.log(al);
     }
     function compararNombres(nombre, variable) {
         return nombre.toLowerCase().includes(variable.toLowerCase());
@@ -566,7 +614,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         if(cantonFilter == 'all'){
             if(provinciaFilter != ''){
                 switch (provinciaFilter) {
-                    case 'San José':
+                    case 'San Jose':
                         if(serviciosFilter != 'all'){
                             for(let service of jsonServicios){
                                 if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
@@ -710,7 +758,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
     }
     $(document).ready(function(){
         provinciaSel = $('#provincias');
-        provinciaSel.append($('<option></option>', {value: 'San José', text: 'San José', selected: true}));
+        provinciaSel.append($('<option></option>', {value: 'San Jose', text: 'San Jose', selected: true}));
         provinciaSel.append($('<option></option>', {value: 'Alajuela', text: 'Alajuela'}));
         provinciaSel.append($('<option></option>', {value: 'Cartago', text: 'Cartago'}));
         provinciaSel.append($('<option></option>', {value: 'Heredia', text: 'Heredia'}));
@@ -727,9 +775,19 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         $('#provincias').on('change', function(){
             var prov = $(this).val();
             var selectCantones = $('#cantones');
+            for(let i=1;i<=total;i++){
+                $('#counter'+i).hide();
+            }
 
             switch (prov) {
-                case 'San José':
+                case 'San Jose':
+                    $('.al').css('display', 'none');
+                    $('.ca').css('display', 'none');
+                    $('.he').css('display', 'none');
+                    $('.li').css('display', 'none');
+                    $('.gu').css('display', 'none');
+                    $('.pu').css('display', 'none');                        
+                    $('.sj').css('display', 'flex');
                     if(sjc.length > 0){
                         for(let i=0;i<sjc.length;i++){
                             var selected = (i==0) ? true: false;
@@ -738,6 +796,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     }
                 break;
                 case 'Alajuela':
+                    $('.sj').css('display', 'none');
+                    $('.ca').css('display', 'none');
+                    $('.he').css('display', 'none');
+                    $('.li').css('display', 'none');
+                    $('.gu').css('display', 'none');
+                    $('.pu').css('display', 'none');  
+                    $('.al').css('display', 'flex');
                     if(alc.length > 0){
                         for(let j=0;j<alc.length;j++){
                             var selected = (j==0) ? true: false;
@@ -746,6 +811,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     }
                 break;
                 case 'Cartago':
+                    $('.sj').css('display','none');
+                    $('.al').css('display','none');
+                    $('.he').css('display','none');
+                    $('.li').css('display','none');
+                    $('.gu').css('display','none');
+                    $('.pu').css('display','none');  
+                    $('.ca').css('display','flex');
                     if(cac.length > 0){
                         for(let k=0;k<cac.length;k++){
                             var selected = (k==0) ? true: false;
@@ -754,6 +826,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     }
                 break;
                 case 'Heredia':
+                    $('.sj').css('display','none');
+                    $('.al').css('display','none');
+                    $('.gu').css('display','none');
+                    $('.pu').css('display','none');
+                    $('.li').css('display','none');
+                    $('.ca').css('display','none');
+                    $('.he').css('display','flex');
                     if(hec.length > 0){
                         for(let l=0;l<hec.length;l++){
                             var selected = (l==0) ? true: false;
@@ -762,6 +841,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     }
                 break;
                 case 'Limón':
+                    $('.sj').css('display', 'none');
+                    $('.al').css('display', 'none');
+                    $('.he').css('display', 'none');
+                    $('.pu').css('display', 'none');
+                    $('.gu').css('display', 'none');
+                    $('.ca').css('display', 'none');
+                    $('.li').css('display', 'flex');
                     if(lic.length > 0){
                         for(let m=0;m<lic.length;m++){
                             var selected = (m==0) ? true: false;
@@ -770,6 +856,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     }
                 break;
                 case 'Puntarenas':
+                    $('.sj').css('display','none');
+                    $('.al').css('display','none');
+                    $('.he').css('display','none');
+                    $('.li').css('display','none');
+                    $('.gu').css('display','none');
+                    $('.ca').css('display','none');
+                    $('.pu').css('display','flex');
                     if(ptc.length > 0){
                         for(let n=0;n<ptc.length;n++){
                             var selected = (n==0) ? true: false;
@@ -778,6 +871,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     }
                 break;
                 case 'Guanacaste':
+                    $('.sj').css('display','none');
+                    $('.al').css('display','none');
+                    $('.he').css('display','none');
+                    $('.pu').css('display','none');
+                    $('.li').css('display','none');
+                    $('.ca').css('display','none');
+                    $('.gu').css('display','flex');
                     if(gtc.length > 0){
                         for(let o=0;o<gtc.length;o++){
                             var selected = (o==0) ? true: false;

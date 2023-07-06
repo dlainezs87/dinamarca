@@ -14,6 +14,8 @@ if (isset($_POST['action'])) {
         $encargado = (!empty($_POST['encargado'])) ? addslashes($_POST['encargado']): '';
         $telefono  = (!empty($_POST['telefono'])) ? addslashes($_POST['telefono']): '';
         $horario   = (!empty($_POST['horario'])) ? addslashes($_POST['horario']): '';
+        $whatsapp  = (!empty($_POST['whatsapp'])) ? addslashes($_POST['whatsapp']): '';
+        $url       = (!empty($_POST['url'])) ? addslashes($_POST['url']): '';
         $opcionesSeleccionadas = (!empty($_POST['servicios'])) ? $_POST['servicios']: [];
 
         if($provincia != 'Todas' || $canton != 'Todos'){
@@ -27,7 +29,9 @@ if (isset($_POST['action'])) {
                 `texto`,
                 `encargado`,
                 `telefono`,
-                `horario`
+                `horario`,
+                `whatsapp`,
+                `url`
                 )values(
                     '" . $principal . "',
                     '" . $latitud . "',
@@ -38,7 +42,9 @@ if (isset($_POST['action'])) {
                     '" . $texto . "',
                     '" . $encargado . "',
                     '" . $telefono . "',
-                    '" . $horario . "'
+                    '" . $horario . "',
+                    '" . $whatsapp . "',
+                    '" . $url . "'
                 )";
             if ($mysqli->query($sql)) {
                 $idgen = $mysqli->insert_id;
@@ -107,6 +113,8 @@ if (isset($_POST['action'])) {
         $encargado = (!empty($_POST['encargado'])) ? addslashes($_POST['encargado']): '';
         $telefono  = (!empty($_POST['telefono'])) ? addslashes($_POST['telefono']): '';
         $horario   = (!empty($_POST['horario'])) ? addslashes($_POST['horario']): '';
+        $whatsapp  = (!empty($_POST['whatsapp'])) ? addslashes($_POST['whatsapp']): '';
+        $url       = (!empty($_POST['url'])) ? addslashes($_POST['url']): '';
         $id        = (!empty($_POST['id'])) ? (int)addslashes($_POST['id']): 0;
         $opcionesSeleccionadas = (!empty($_POST['servicios'])) ? $_POST['servicios']: [];
 
@@ -148,8 +156,10 @@ if (isset($_POST['action'])) {
                 `texto` = '"     . $texto . "',
                 `encargado` = '" . $encargado . "',
                 `telefono` = '"  . $telefono . "',
-                `horario` = '"   . $horario . "'
-                where id = " . $id;
+                `horario` = '"   . $horario . "',
+                `whatsapp` = '"  . $whatsapp . "',
+                `url` = '"       . $url . "'
+                where id = "     . $id;
             if ($mysqli->query($sql)) {
                 $idgen = $id;
     

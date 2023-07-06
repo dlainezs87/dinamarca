@@ -2,7 +2,7 @@
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Mapa</h1>
-<p class="mb-4">Add New</p>
+<p class="mb-4">Agregar Nuevo</p>
 
 
 <!-- DataTales Example -->
@@ -46,9 +46,19 @@
             </div>
             <div class="row">
                 <div class="col-4 form-group">
+                    <label for="encargado">Encargado:</label>
+                    <input type="text" class="form-control" id="encargado" name="encargado" placeholder="Encargado:">
+                </div>
+                <div class="col-4 form-group">
+                    <label for="telefono">Tel&eacute;fono:</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Tel&eacute;fono:">
+                </div>
+                <div class="col-4 form-group">
                     <label for="texto">Texto:</label>
                     <input type="text" class="form-control" id="texto" name="texto" placeholder="Texto corto">
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-4 form-group">
                     <label for="texto">Servicios: (ctrl + click)</label>
                     <select name="servicios[]" class="form-select form-control" id="servicios" multiple>
@@ -67,6 +77,10 @@
                     ?>
                     </select>
                 </div>
+                <div class="col-8 form-group">
+                    <label for="horario">Horario:</label>
+                    <input type="text" class="form-control" id="horario" name="horario" placeholder="Horario:">
+                </div>
             </div>
             <div class="row">
                 <div class="col form-group">
@@ -75,7 +89,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Add</button>
-            <a href="blogs.php" type="submit" class="btn btn-secondary">Back</a>
+            <a href="mapa.php" type="submit" class="btn btn-secondary">Back</a>
             <input type="hidden" name="action" id="action" value="add">
         </form>
     </div>

@@ -54,6 +54,61 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         height: auto !important;
         width: auto !important;
     }
+    .sites{
+        margin: -5em 0 3em 20%;
+    }
+    .locations{
+        display: flex;
+        justify-content: center;
+        font-family: 'Nunito', sans-serif;
+        cursor:pointer;
+    }
+    .color1{
+        background-color: #104F9E;
+        font-weight: bold;
+        text-align: center;
+    }
+    .color2{
+        background-color: #76BD41;
+        font-weight: bold;
+        text-align: center;
+    }
+    .color3{
+        background-color: #F8F8F8;
+        font-weight: bold;
+        text-align: center;
+    }
+    .color4{
+        background-color: #FFFFFF;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+    }
+    .mainLetter{
+        font-size: 75px;
+    }
+    .grey{
+        background-color: #F8F8F8;
+    }
+    .grey2{
+        background-color: #f0efef;
+    }
+    @media (max-width: 479px) {
+        #filter {
+            background-color: #4b7bb6;
+            position: relative;
+            top: 2em;
+            left: 5%;
+            width: 90%;
+            height: 22em;
+            color: #fff;
+            padding: 2%;
+            font-family: Arial, sans-serif;
+        }
+        .sites{
+            margin: 3em 0 3em 0;
+        }
+    }
 </style>
 <div id="map"></div>
 <div id="filter">
@@ -90,8 +145,53 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         </div>
     </div>
 </div>
-
+<div class="container sites">
+    <div class="row">
+        <div class="col-12">
+            <label for="informacion">Informaci&oacute;n:</label>
+        </div>
+        <div class="col-12">
+            <?php
+                $counter = 1;
+                $info = 1;
+                $total = count($Mapa);
+                foreach($Mapa as $map){
+                    if($counter>4){
+                        $counter = 1;
+                    }
+                    $string = $map['nombre'];
+                    $primeraLetra = strtoupper(substr($string, 0, 1));
+                    ?>
+                    <div class="locations mt-2" onclick="showInfo(<?= $info ?>);">
+                        <div class="col-2 color<?= $counter ?>">
+                            <label class="mainLetter"><?= $primeraLetra ?></label>
+                        </div>
+                        <div class="col-3 grey" style="padding:3.5%;">
+                            <label><?= $map['nombre'] ?></label>
+                        </div>
+                        <div class="col-7 grey2" style="padding:3.5%;">
+                            <label><?= $map['texto'] ?></label>
+                        </div>
+                    </div>
+                    <div style="display:none;height: 5em;padding-top: 3%;padding-left: 1%;" id="counter<?= $info ?>">
+                        <?= 'Horario de atencion: ' . $map['horario'] . '. Para mas informacion al telefono: ' . $map['telefono'] . ' con ' . $map['encargado'] ?>
+                    </div>
+                <?php
+                    $counter++;
+                    $info++;
+                    }
+                ?>
+        </div>
+    </div>
+</div>
 <script>
+    var total = "<?= $total ?>"
+    function showInfo(id){
+        for(let i=1;i<=total;i++){
+            $('#counter'+i).hide();
+        }
+        $('#counter'+id).show('slow');
+    }
     var map;
     var markers = [];
     var services = [];
@@ -115,7 +215,6 @@ echo '<script> var base_url = "' . base_url . '"</script>';
     var mainCantones = [];
 
     function initMap() {
-        // Coordenadas del centro de San José, Costa Rica
         let main = {}
         let pointsOfInterest = [];
 
@@ -138,14 +237,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     position: point.position,
                     map: map,
                     icon: {
-                        url: point.photo, // Utilizar la foto como icono
-                        scaledSize: new google.maps.Size(50, 50), // Tamaño del marcador
-                        origin: new google.maps.Point(0, 0), // Punto de origen de la imagen
-                        anchor: new google.maps.Point(25, 25) // Punto de anclaje del marcador
+                        url: point.photo,
+                        scaledSize: new google.maps.Size(50, 50),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(25, 25)
                     }
                 });
 
-                // Agregar información adicional al marcador (nombre y foto)
                 var content = '<h3>' + point.name + '</h3>' +
                     '<img src="' + point.photo + '" alt="' + point.name + '">';
 
@@ -153,7 +251,6 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     content: content
                 });
 
-                // Mostrar información adicional al hacer clic en el marcador
                 marker.addListener('click', function() {
                     infowindow.open(map, marker);
                 });
@@ -185,14 +282,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         position: point.position,
                         map: map,
                         icon: {
-                            url: point.photo, // Utilizar la foto como icono
-                            scaledSize: new google.maps.Size(50, 50), // Tamaño del marcador
-                            origin: new google.maps.Point(0, 0), // Punto de origen de la imagen
-                            anchor: new google.maps.Point(25, 25) // Punto de anclaje del marcador
+                            url: point.photo,
+                            scaledSize: new google.maps.Size(50, 50),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(25, 25)
                         }
                     });
 
-                    // Agregar información adicional al marcador (nombre y foto)
                     var content = '<h3>' + point.name + '</h3>' +
                         '<img src="' + point.photo + '" alt="' + point.name + '">';
 
@@ -200,7 +296,6 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         content: content
                     });
 
-                    // Mostrar información adicional al hacer clic en el marcador
                     marker.addListener('click', function() {
                         infowindow.open(map, marker);
                     });
@@ -218,14 +313,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         position: point.position,
                         map: map,
                         icon: {
-                            url: point.photo, // Utilizar la foto como icono
-                            scaledSize: new google.maps.Size(50, 50), // Tamaño del marcador
-                            origin: new google.maps.Point(0, 0), // Punto de origen de la imagen
-                            anchor: new google.maps.Point(25, 25) // Punto de anclaje del marcador
+                            url: point.photo,
+                            scaledSize: new google.maps.Size(50, 50),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(25, 25)
                         }
                     });
 
-                    // Agregar información adicional al marcador (nombre y foto)
                     var content = '<h3>' + point.name + '</h3>' +
                         '<img src="' + point.photo + '" alt="' + point.name + '">';
 
@@ -233,7 +327,6 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         content: content
                     });
 
-                    // Mostrar información adicional al hacer clic en el marcador
                     marker.addListener('click', function() {
                         infowindow.open(map, marker);
                     });
@@ -250,14 +343,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         position: point.position,
                         map: map,
                         icon: {
-                            url: point.photo, // Utilizar la foto como icono
-                            scaledSize: new google.maps.Size(50, 50), // Tamaño del marcador
-                            origin: new google.maps.Point(0, 0), // Punto de origen de la imagen
-                            anchor: new google.maps.Point(25, 25) // Punto de anclaje del marcador
+                            url: point.photo,
+                            scaledSize: new google.maps.Size(50, 50),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(25, 25)
                         }
                     });
 
-                    // Agregar información adicional al marcador (nombre y foto)
                     var content = '<h3>' + point.name + '</h3>' +
                         '<img src="' + point.photo + '" alt="' + point.name + '">';
 
@@ -265,7 +357,6 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         content: content
                     });
 
-                    // Mostrar información adicional al hacer clic en el marcador
                     marker.addListener('click', function() {
                         infowindow.open(map, marker);
                     });
@@ -282,14 +373,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         position: point.position,
                         map: map,
                         icon: {
-                            url: point.photo, // Utilizar la foto como icono
-                            scaledSize: new google.maps.Size(50, 50), // Tamaño del marcador
-                            origin: new google.maps.Point(0, 0), // Punto de origen de la imagen
-                            anchor: new google.maps.Point(25, 25) // Punto de anclaje del marcador
+                            url: point.photo,
+                            scaledSize: new google.maps.Size(50, 50),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(25, 25)
                         }
                     });
 
-                    // Agregar información adicional al marcador (nombre y foto)
                     var content = '<h3>' + point.name + '</h3>' +
                         '<img src="' + point.photo + '" alt="' + point.name + '">';
 
@@ -297,7 +387,6 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         content: content
                     });
 
-                    // Mostrar información adicional al hacer clic en el marcador
                     marker.addListener('click', function() {
                         infowindow.open(map, marker);
                     });
@@ -314,14 +403,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         position: point.position,
                         map: map,
                         icon: {
-                            url: point.photo, // Utilizar la foto como icono
-                            scaledSize: new google.maps.Size(50, 50), // Tamaño del marcador
-                            origin: new google.maps.Point(0, 0), // Punto de origen de la imagen
-                            anchor: new google.maps.Point(25, 25) // Punto de anclaje del marcador
+                            url: point.photo,
+                            scaledSize: new google.maps.Size(50, 50),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(25, 25)
                         }
                     });
 
-                    // Agregar información adicional al marcador (nombre y foto)
                     var content = '<h3>' + point.name + '</h3>' +
                         '<img src="' + point.photo + '" alt="' + point.name + '">';
 
@@ -329,7 +417,6 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         content: content
                     });
 
-                    // Mostrar información adicional al hacer clic en el marcador
                     marker.addListener('click', function() {
                         infowindow.open(map, marker);
                     });
@@ -346,14 +433,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         position: point.position,
                         map: map,
                         icon: {
-                            url: point.photo, // Utilizar la foto como icono
-                            scaledSize: new google.maps.Size(50, 50), // Tamaño del marcador
-                            origin: new google.maps.Point(0, 0), // Punto de origen de la imagen
-                            anchor: new google.maps.Point(25, 25) // Punto de anclaje del marcador
+                            url: point.photo,
+                            scaledSize: new google.maps.Size(50, 50),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(25, 25)
                         }
                     });
 
-                    // Agregar información adicional al marcador (nombre y foto)
                     var content = '<h3>' + point.name + '</h3>' +
                         '<img src="' + point.photo + '" alt="' + point.name + '">';
 
@@ -361,7 +447,6 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         content: content
                     });
 
-                    // Mostrar información adicional al hacer clic en el marcador
                     marker.addListener('click', function() {
                         infowindow.open(map, marker);
                     });
@@ -378,14 +463,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         position: point.position,
                         map: map,
                         icon: {
-                            url: point.photo, // Utilizar la foto como icono
-                            scaledSize: new google.maps.Size(50, 50), // Tamaño del marcador
-                            origin: new google.maps.Point(0, 0), // Punto de origen de la imagen
-                            anchor: new google.maps.Point(25, 25) // Punto de anclaje del marcador
+                            url: point.photo,
+                            scaledSize: new google.maps.Size(50, 50),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(25, 25)
                         }
                     });
 
-                    // Agregar información adicional al marcador (nombre y foto)
                     var content = '<h3>' + point.name + '</h3>' +
                         '<img src="' + point.photo + '" alt="' + point.name + '">';
 
@@ -393,7 +477,6 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         content: content
                     });
 
-                    // Mostrar información adicional al hacer clic en el marcador
                     marker.addListener('click', function() {
                         infowindow.open(map, marker);
                     });
@@ -420,13 +503,12 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         var marker = new google.maps.Marker({
             position: map.getCenter(),
             map: map,
-            icon: base_url + 'images/mapa/' + main.imagen  // Ruta a la imagen que deseas utilizar
+            icon: base_url + 'images/mapa/' + main.imagen
         });
         var infoWindow = new google.maps.InfoWindow({
             content: main.texto
         });
 
-        // Abrir la ventana de información al hacer clic en el marcador
         marker.addListener('click', function() {
             infoWindow.open(map, marker);
         });
@@ -434,19 +516,17 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         sj.push(marker);
 
         pointsOfInterest.forEach(function(point) {
-            // Filtrar los puntos de interés que coinciden con los criterios seleccionados
             var marker = new google.maps.Marker({
                 position: point.position,
                 map: map,
                 icon: {
-                    url: point.photo, // Utilizar la foto como icono
-                    scaledSize: new google.maps.Size(50, 50), // Tamaño del marcador
-                    origin: new google.maps.Point(0, 0), // Punto de origen de la imagen
-                    anchor: new google.maps.Point(25, 25) // Punto de anclaje del marcador
+                    url: point.photo,
+                    scaledSize: new google.maps.Size(50, 50),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(25, 25)
                 }
             });
 
-            // Agregar información adicional al marcador (nombre y foto)
             var content = '<h4>' + point.name + '</h4>' +
                 '<img src="' + point.photo + '" alt="' + point.name + '" style="margin-left: 15%;margin-right: 15%;"><br>'+
                 '<p>' + point.texto + '</p>'
@@ -455,12 +535,10 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                 content: content
             });
 
-            // Mostrar información adicional al hacer clic en el marcador
             marker.addListener('click', function() {
                 infowindow.open(map, marker);
             });
 
-            // Agregar el marcador a la lista de marcadores
             markers.push(marker);
         });
         console.log(al);
@@ -469,9 +547,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         return nombre.toLowerCase().includes(variable.toLowerCase());
     }
 
-    // Función para aplicar los filtros y centrar el mapa en el punto que coincide
     function applyFilters() {
-        // Obtener los valores de los filtros seleccionados
         var provinciaFilter = document.getElementById('provincias').value;
         var cantonFilter = document.getElementById('cantones').value;
         var serviciosFilter = document.getElementById('servicios').value;

@@ -25,8 +25,8 @@ if (isset($_GET['err'])) {
     </div>
 <?php } ?>
 
-<p class="mb-4">Add, edit or delete.</p>
-<a class="btn btn-primary mb-4" href="mapa-add.php">Add New</a>
+<p class="mb-4">Agregar, editar o borrar.</p>
+<a class="btn btn-primary mb-4" href="mapa-add.php">Agregar Nuevo</a>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -38,11 +38,11 @@ if (isset($_GET['err'])) {
                     <tr>
                         <th class="col-2">Nombre</th>
                         <th class="col-2">Principal</th>
-                        <th class="col-2">Latitud</th>
-                        <th class="col-2">Longitud</th>
+                        <th class="col-2">Encargado</th>
+                        <th class="col-2">Telefono</th>
                         <th class="col-2">Provincia</th>
                         <th class="col-2">Canton</th>
-                        <th class="col-2 text-center">Actions</th>
+                        <th class="col-2 text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,8 +55,8 @@ if (isset($_GET['err'])) {
                         <tr>
                             <td><?php echo  $row['nombre'] ?></td>
                             <td><?php echo ($row['principal'] == 'Y') ? 'Principal': 'Sucursal'; ?></td>
-                            <td><?php echo  $row['latitud'] ?></td>
-                            <td><?php echo  $row['longitud'] ?></td>
+                            <td><?php echo  $row['encargado'] ?></td>
+                            <td><?php echo  $row['telefono'] ?></td>
                             <td><?php echo  $row['provincia'] ?></td>
                             <td><?php echo  $row['canton'] ?></td>
                             <td class="text-center">

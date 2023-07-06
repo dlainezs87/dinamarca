@@ -56,22 +56,32 @@ include("../config/parameters.php");
                 </div>
                 <div class="row">
                     <div class="col-4 form-group">
-                        <label for="texto">Texto:</label>
-                        <input type="text" class="form-control" value="<?php echo $row['texto'] ?>" id="texto" name="texto" placeholder="Texto corto">
+                        <label for="encargado">Encargado:</label>
+                        <input type="text" class="form-control" id="encargado" value="<?php echo $row['encargado'] ?>" name="encargado" placeholder="Encargado:">
                     </div>
-                        <?php
-                            $arrServ = [];
-                            include("conn.php");
-                            $sql1 = "SELECT s.id
-                                    FROM serviciovsmapa sm 
-                                    LEFT JOIN mapa m ON (sm.idMapa = m.id) 
-                                    LEFT JOIN servicios s ON (sm.idServicio = s.id) 
-                                    WHERE m.id = " . $id;
-                            $query1 = $mysqli->query($sql1);
-                            while($rowSXM = $query1->fetch_assoc()){
-                                array_push($arrServ, $rowSXM['id']);
-                            }
-                        ?>
+                    <div class="col-4 form-group">
+                        <label for="telefono">Tel&eacute;fono:</label>
+                        <input type="text" class="form-control" id="telefono" value="<?php echo $row['telefono'] ?>" name="telefono" placeholder="Tel&eacute;fono:">
+                    </div>
+                    <div class="col-4 form-group">
+                        <label for="texto">Texto:</label>
+                        <input type="text" class="form-control" id="texto" value="<?php echo $row['texto'] ?>" name="texto" placeholder="Texto corto">
+                    </div>
+                </div>
+                <div class="row">
+                    <?php
+                        $arrServ = [];
+                        include("conn.php");
+                        $sql1 = "SELECT s.id
+                                FROM serviciovsmapa sm 
+                                LEFT JOIN mapa m ON (sm.idMapa = m.id) 
+                                LEFT JOIN servicios s ON (sm.idServicio = s.id) 
+                                WHERE m.id = " . $id;
+                        $query1 = $mysqli->query($sql1);
+                        while($rowSXM = $query1->fetch_assoc()){
+                            array_push($arrServ, $rowSXM['id']);
+                        }
+                    ?>
                     <div class="col-4 form-group">
                         <label for="texto">Servicios: (ctrl + click)</label>
                         <select name="servicios[]" class="form-select form-control" id="servicios" multiple>
@@ -88,6 +98,10 @@ include("../config/parameters.php");
                             }
                         ?>
                         </select>
+                    </div>
+                    <div class="col-8 form-group">
+                        <label for="horario">Horario:</label>
+                        <input type="text" class="form-control" id="horario" value="<?php echo $row['horario'] ?>" name="horario" placeholder="Horario:">
                     </div>
                 </div>
                 <div class="form-group">

@@ -18,7 +18,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         width: 60%;
         height: 8em;
         color: #fff;
-        padding: 2%;
+        padding: 1%;
         font-family: Arial, sans-serif;
     }
 
@@ -77,6 +77,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         background-color: #F8F8F8;
         font-weight: bold;
         text-align: center;
+        width: 20%;
     }
     .color4{
         background-color: #FFFFFF;
@@ -89,9 +90,11 @@ echo '<script> var base_url = "' . base_url . '"</script>';
     }
     .grey{
         background-color: #F8F8F8;
+        width: 35%;
     }
     .grey2{
         background-color: #f0efef;
+        width: 50%;
     }
     .al{
         display: none;
@@ -132,39 +135,31 @@ echo '<script> var base_url = "' . base_url . '"</script>';
 <div id="filter">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3">
                 <label for="provincias">Provincia</label>
                 <select id="provincias" name="provincias" class="form-control width100"></select>
             </div>
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3">
                 <label for="cantones">Cantón</label>
                 <select id="cantones" name="cantones" class="form-control width100">
                     <option value="all" selected>Todos</option>
                 </select>
             </div>
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3">
                 <label for="servicios">Servicios:</label>
                 <select id="servicios" name="servicios" class="form-control width100">
                     <option value="all">Todos</option>
                 </select>
             </div>
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" class="form-control specialH2 width100" placeholder="Busqueda por nombre:">
             </div>
-            <!--div class="col-md-3 mt-3">
-                <button id="buscar" onclick="applyFilters()" class="form-control">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" width="18px" height="18px">
-                        <path d="M0 0h24v24H0z" fill="none" />
-                        <path d="M15.5 14h-.79l-.28-.27a6.47 6.47 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-5 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z" />
-                    </svg>
-                </button>
-            </div-->
         </div>
     </div>
 </div>
 <div class="container sites">
-    <div class="row">
+    <div class="row col-12">
         <div class="col-12">
             <label for="informacion">Informaci&oacute;n:</label>
         </div>
@@ -207,15 +202,17 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         break;
                     }
                     ?>
-                    <div class="locations mt-2 <?= $prov ?>" onclick="showInfo(<?= $info ?>);">
-                        <div class="col-lg-2 col-sm-3 color<?= $counter ?>">
-                            <label class="mainLetter"><?= $primeraLetra ?></label>
-                        </div>
-                        <div class="col-3 grey" style="padding:3.5%;">
-                            <label><?= $map['nombre'] ?></label>
-                        </div>
-                        <div class="col-sm-5 col-md-7 col-lg-7 grey2" style="padding:3.5%;">
-                            <label><?= $map['texto'] ?></label>
+                    <div class="locations mt-2 <?= $prov ?>" onclick="showInfo(<?= $info ?>);"style="width:100%;">
+                        <div style="display:flex;flex:1;">
+                            <div class="color<?= $counter ?>">
+                                <label class="mainLetter"><?= $primeraLetra ?></label>
+                            </div>
+                            <div class="grey" style="padding:3.5%;">
+                                <label><?= $map['nombre'] ?></label>
+                            </div>
+                            <div class="grey2" style="padding:3.5%;">
+                                <label><?= $map['texto'] ?></label>
+                            </div>
                         </div>
                     </div>
                     <div style="display:none;height: 5em;padding-top: 1%;padding-left: 1%;" id="counter<?= $info ?>">
@@ -612,6 +609,57 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                 }
             }
         }
+        if(serviciosFilter != 'all'){
+            for(let service of jsonServicios){
+                if(service.idServicio == serviciosFilter){
+                    let prov = service.provincia;
+                    switch (prov) {
+                        case 'San Jose':
+                            filteredMarkers = sj.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
+                        break;
+                        case 'Cartago':
+                            filteredMarkers = ca.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
+                        break;
+                        case 'Alajuela':
+                            filteredMarkers = al.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
+                        break;
+                        case 'Heredia':
+                            filteredMarkers = he.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
+                        break;
+                        case 'Limon':
+                            filteredMarkers = li.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
+                        break;
+                        case 'Guanacaste':
+                            filteredMarkers = gt.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
+                        break;
+                        case 'Puntarenas':
+                            filteredMarkers = pt.filter(function(marker) {
+                                var point = marker.getPosition();
+                                return point;
+                            });
+                        break;
+                    }
+                }
+            }
+        }
         if(cantonFilter == 'all'){
             if(provinciaFilter != ''){
                 switch (provinciaFilter) {
@@ -778,6 +826,9 @@ echo '<script> var base_url = "' . base_url . '"</script>';
             applyFilters();
         });
         $('#cantones').on('change', function(){
+            applyFilters();
+        });
+        $('#servicios').on('change', function(){
             applyFilters();
         });
         $('#provincias').on('change', function(){

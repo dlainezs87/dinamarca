@@ -45,8 +45,8 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         color: #fff;
         border: 1px solid #104f9e;
         cursor: pointer;
-        margin-top: 2em;
-        margin-left: 3em;
+        width: 25%;
+        float: right;
     }
     .gm-style-iw .gm-style-iw-c{
         max-width: 1248px !important;
@@ -118,7 +118,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
             top: 2em;
             left: 5%;
             width: 90%;
-            height: 22em;
+            height: 25em;
             color: #fff;
             padding: 2%;
             font-family: Arial, sans-serif;
@@ -132,34 +132,34 @@ echo '<script> var base_url = "' . base_url . '"</script>';
 <div id="filter">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 mt-2">
                 <label for="provincias">Provincia</label>
                 <select id="provincias" name="provincias" class="form-control width100"></select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mt-2">
                 <label for="cantones">Cantón</label>
                 <select id="cantones" name="cantones" class="form-control width100">
                     <option value="all" selected>Todos</option>
                 </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mt-2">
                 <label for="servicios">Servicios:</label>
                 <select id="servicios" name="servicios" class="form-control width100">
                     <option value="all">Todos</option>
                 </select>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3 mt-2">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" class="specialH2">
+                <input type="text" id="nombre" class="form-control specialH2 width100" placeholder="Busqueda por nombre:">
             </div>
-            <div class="col-md-1">
-                <button id="buscar" onclick="applyFilters()">
+            <!--div class="col-md-3 mt-3">
+                <button id="buscar" onclick="applyFilters()" class="form-control">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" width="18px" height="18px">
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path d="M15.5 14h-.79l-.28-.27a6.47 6.47 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-5 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z" />
                     </svg>
                 </button>
-            </div>
+            </div-->
         </div>
     </div>
 </div>
@@ -208,13 +208,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     }
                     ?>
                     <div class="locations mt-2 <?= $prov ?>" onclick="showInfo(<?= $info ?>);">
-                        <div class="col-2 color<?= $counter ?>">
+                        <div class="col-lg-2 col-sm-3 color<?= $counter ?>">
                             <label class="mainLetter"><?= $primeraLetra ?></label>
                         </div>
                         <div class="col-3 grey" style="padding:3.5%;">
                             <label><?= $map['nombre'] ?></label>
                         </div>
-                        <div class="col-7 grey2" style="padding:3.5%;">
+                        <div class="col-sm-5 col-md-7 col-lg-7 grey2" style="padding:3.5%;">
                             <label><?= $map['texto'] ?></label>
                         </div>
                     </div>
@@ -311,6 +311,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
             }
             if (datMap.principal == 'Y') {
                 main = datMap;
+                sjc.push(datMap.canton);
             } else {
                 var point = {
                     name: datMap.nombre,
@@ -750,7 +751,6 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                 }
             }
         }
-        
 
         if (filteredMarkers.length > 0) {
             map.setCenter(filteredMarkers[0].getPosition());
@@ -767,14 +767,23 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         provinciaSel.append($('<option></option>', {value: 'Guanacaste', text: 'Guanacaste'}));
 
         if(sjc.length > 0){
-            for(let canton of sjc){
-                $('select[name="cantones"]').append($('<option></option>')).text(canton);
+            var selectCantones = $('#cantones');
+            for(let i=0;i<sjc.length;i++){
+                var selected = (i==0) ? true: false;
+                selectCantones.append($('<option></option>', {value: sjc[i], text: sjc[i], selected:selected}));
             }
         }
 
+        $( "#nombre" ).on( "keyup", function() {
+            applyFilters();
+        });
+        $('#cantones').on('change', function(){
+            applyFilters();
+        });
         $('#provincias').on('change', function(){
             var prov = $(this).val();
             var selectCantones = $('#cantones');
+            selectCantones.empty();
             for(let i=1;i<=total;i++){
                 $('#counter'+i).hide();
             }
@@ -789,9 +798,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     $('.pu').css('display', 'none');                        
                     $('.sj').css('display', 'flex');
                     if(sjc.length > 0){
+                        var validator = [];
                         for(let i=0;i<sjc.length;i++){
-                            var selected = (i==0) ? true: false;
-                            selectCantones.append($('<option></option>', {value: sjc[i], text: sjc[i], selected:selected}));
+                            if(!validator.includes(sjc[i])){
+                                var selected = (i==0) ? true: false;
+                                selectCantones.append($('<option></option>', {value: sjc[i], text: sjc[i], selected:selected}));
+                                validator.push(sjc[i]);
+                            }
                         }
                     }
                 break;
@@ -804,9 +817,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     $('.pu').css('display', 'none');  
                     $('.al').css('display', 'flex');
                     if(alc.length > 0){
+                        var validator = [];
                         for(let j=0;j<alc.length;j++){
-                            var selected = (j==0) ? true: false;
-                            selectCantones.append($('<option></option>', {value: alc[j], text: alc[j], selected:selected}));
+                            if(!validator.includes(alc[j])){
+                                var selected = (j==0) ? true: false;
+                                selectCantones.append($('<option></option>', {value: alc[j], text: alc[j], selected:selected}));
+                                validator.push(alc[j]);
+                            }
                         }
                     }
                 break;
@@ -819,9 +836,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     $('.pu').css('display','none');  
                     $('.ca').css('display','flex');
                     if(cac.length > 0){
+                        var validator = [];
                         for(let k=0;k<cac.length;k++){
-                            var selected = (k==0) ? true: false;
-                            selectCantones.append($('<option></option>', {value: cac[k], text: cac[k], selected:selected}));
+                            if(!validator.includes(cac[k])){
+                                var selected = (k==0) ? true: false;
+                                selectCantones.append($('<option></option>', {value: cac[k], text: cac[k], selected:selected}));
+                                validator.push(cac[k]);
+                            }
                         }
                     }
                 break;
@@ -834,9 +855,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     $('.ca').css('display','none');
                     $('.he').css('display','flex');
                     if(hec.length > 0){
+                        var validator = [];
                         for(let l=0;l<hec.length;l++){
-                            var selected = (l==0) ? true: false;
-                            selectCantones.append($('<option></option>', {value: hec[l], text: hec[l], selected:selected}));
+                            if(!validator.includes(hec[l])){
+                                var selected = (l==0) ? true: false;
+                                selectCantones.append($('<option></option>', {value: hec[l], text: hec[l], selected:selected}));
+                                validator.push(hec[l]);
+                            }
                         }
                     }
                 break;
@@ -849,9 +874,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     $('.ca').css('display', 'none');
                     $('.li').css('display', 'flex');
                     if(lic.length > 0){
+                        var validator = [];
                         for(let m=0;m<lic.length;m++){
-                            var selected = (m==0) ? true: false;
-                            selectCantones.append($('<option></option>', {value: lic[m], text: lic[m], selected:selected}));
+                            if(!validator.includes(lic[m])){
+                                var selected = (m==0) ? true: false;
+                                selectCantones.append($('<option></option>', {value: lic[m], text: lic[m], selected:selected}));
+                                validator.push(lic[m]);
+                            }
                         }
                     }
                 break;
@@ -864,9 +893,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     $('.ca').css('display','none');
                     $('.pu').css('display','flex');
                     if(ptc.length > 0){
+                        var validator = [];
                         for(let n=0;n<ptc.length;n++){
-                            var selected = (n==0) ? true: false;
-                            selectCantones.append($('<option></option>', {value: ptc[n], text: ptc[n], selected:selected}));
+                            if(!validator.includes(ptc[n])){
+                                var selected = (n==0) ? true: false;
+                                selectCantones.append($('<option></option>', {value: ptc[n], text: ptc[n], selected:selected}));
+                                validator.push(ptc[n]);
+                            }
                         }
                     }
                 break;
@@ -879,13 +912,19 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                     $('.ca').css('display','none');
                     $('.gu').css('display','flex');
                     if(gtc.length > 0){
+                        var validator = [];
                         for(let o=0;o<gtc.length;o++){
-                            var selected = (o==0) ? true: false;
-                            selectCantones.append($('<option></option>', {value: gtc[o], text: gtc[o], selected:selected}));
+                            if(!validator.includes(gtc[o])){
+                                var selected = (o==0) ? true: false;
+                                selectCantones.append($('<option></option>', {value: gtc[o], text: gtc[o], selected:selected}));
+                                validator.push(gtc[o]);
+                            }
                         }
                     }
                 break;
             }
+
+            applyFilters();
         });
 
         for(let serv of jsonServicios){

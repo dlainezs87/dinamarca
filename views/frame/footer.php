@@ -81,6 +81,9 @@
               <a class="" href="<?=base_url?>?pag=conventions">
                 Convenios
               </a>
+              <a class="" href="<?=base_url?>?pag=workwithus">
+                &Uacute;nete a nuestro equipo
+              </a>
             </div>
           </div>
         </div>

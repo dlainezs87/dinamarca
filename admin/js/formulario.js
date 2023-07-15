@@ -32,6 +32,11 @@ const mostrarCantones = (nombreProvincia) => {
 const mostrarDistritos = (nombreCanton) => {
     listaDistritos.innerHTML = '';
     listaDistritos.options.add(new Option('-- Seleccione un distrito --'));
+
+    if(nombreCanton != ''){
+        cantonSeleccionado = nombreCanton;
+    }
+
     distribucion.provincias.forEach(provincia => {
         if (provinciaSeleccionada == provincia.title) {
             provincia.cantones.forEach(canton => {
@@ -59,5 +64,5 @@ listaProvincias.addEventListener('change', () => {
 listaCantones.addEventListener('change', () => {
     cantonSeleccionado = listaCantones.value;
 
-    //mostrarDistritos(cantonSeleccionado);
+    mostrarDistritos(cantonSeleccionado);
 })

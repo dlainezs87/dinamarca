@@ -126,8 +126,10 @@ if(!isset($_GET['pag'])){
             $mysqli->close();
             $jsonServicios = json_encode($Servicios);
             require_once"views/pages/mapa.php";
-        break; 
-
+        break;
+        case 'workwithus':
+            require_once"views/pages/workwithus.php";
+        break;
         default:
             break;
     }

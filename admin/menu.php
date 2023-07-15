@@ -99,6 +99,11 @@
                     <i class="fas fa-comment"></i>
                     <span>Blogs</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="prospectos.php">
+                    <i class="fas fa-comment"></i>
+                    <span>Prospectos</span></a>
+            </li>
 
 
 

@@ -342,6 +342,11 @@
 			</div>-->
 		</div>
 	</div>
+	 <div class="products-btn-box">
+        <a href="<?=base_url?>?pag=mapa">
+            Localice su Clínica
+        </a>
+     </div>
 	
 	<!-- contact section -->
 	<div id="contact" class="contact_section layout_padding">

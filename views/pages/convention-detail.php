@@ -6,7 +6,7 @@ $query = $mysqli->query($sql);
 $row = $query->fetch_assoc();
 ?>
 
-<div style="background:url('images/hero-pages-products.png');background-size:cover;
+<div style="background:url('images/hero-pages-convenio.png');background-size:cover;
     background-repeat:no-repeat;background-position:center;" class="hero-pages">
     <div class="container  ">
       <div class="row">

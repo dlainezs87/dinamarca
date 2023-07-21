@@ -1,6 +1,6 @@
 <!-- about section -->
   
-  <div style="background: url('images/hero-pages.png');background-size:cover;background-repeat:no-repeat;
+  <div style="background: url('images/hero-pages-about.png');background-size:cover;background-repeat:no-repeat;
     background-position:center;" class="hero-pages">
     <div class="container  ">
       <div class="row">

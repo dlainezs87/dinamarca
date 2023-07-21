@@ -30,16 +30,13 @@
             </div>
           </div>
           <div class="footer_social">
-            <a href="">
+            <a href="https://www.facebook.com/clinicadinamarcacr">
               <i class="fa fa-facebook" aria-hidden="true"></i>
             </a>
-            <a href="">
-              <i class="fa fa-twitter" aria-hidden="true"></i>
+            <a href="https://wa.me/50684794545">
+              <i class="fa fa-whatsapp" aria-hidden="true"></i>
             </a>
-            <a href="">
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-            <a href="">
+            <a href="https://www.instagram.com/clinicadinamarca/">
               <i class="fa fa-instagram" aria-hidden="true"></i>
             </a>
           </div>

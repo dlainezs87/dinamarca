@@ -1611,15 +1611,15 @@ background: linear-gradient(0deg, rgba(16,79,158,0.9249824929971989) 0%, rgba(16
 </head>
 <body>
 <div>
-    <div style="width:100%;min-height:30px; max-height:50px;background:#783B7C;">
+    <!--<div style="width:100%;min-height:30px; max-height:50px;background:#783B7C;">
       <p style="text-align:center;color:white;font-size:13px;padding-top:5px;">Nos mantenemos actualizados con los protocolos y lineamientos del <a style="color:white;font-weight:bolder;" href="https://www.ministeriodesalud.go.cr/index.php/prensa/60-noticias-2023/1505-salud-recuerda-mantener-medidas-y-protocolos-de-higiene-para-el-inicio-del-proximo-curso-lectivo">COVID-19 2023</a></p>
-    </div>
+    </div>-->
 
     <!-- header section strats -->
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="logo" style="width:15%" class="navbar-brand" href="index.html">
+          <a class="logo" style="width:15%" class="navbar-brand" href="<?=base_url?>">
               <img style="width:100%;" src="images/logo-CD.png">
           </a>
 
@@ -1650,13 +1650,13 @@ background: linear-gradient(0deg, rgba(16,79,158,0.9249824929971989) 0%, rgba(16
               <li>
                 <div class="">
                   <div class="footer_social">
-                  <a style="color:black;font-size:22px;" href="">
+                  <a style="color:black;font-size:22px;" href="https://www.facebook.com/clinicadinamarcacr">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                   </a>&nbsp;&nbsp;
-                  <a style="color:black;font-size:22px;" href="">
+                  <a style="color:black;font-size:22px;" href="https://wa.me/50684794545">
                     <i class="fa fa-whatsapp" aria-hidden="true"></i>
                   </a>&nbsp;&nbsp;
-                  <a style="color:black;font-size:22px;" href="">
+                  <a style="color:black;font-size:22px;" href="https://www.instagram.com/clinicadinamarca/">
                     <i class="fa fa-instagram" aria-hidden="true"></i>
                   </a>
                 </div>

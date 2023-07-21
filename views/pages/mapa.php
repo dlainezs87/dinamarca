@@ -67,11 +67,13 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         background-color: #104F9E;
         font-weight: bold;
         text-align: center;
+        width: 20%;
     }
     .color2{
         background-color: #76BD41;
         font-weight: bold;
         text-align: center;
+        width: 20%;
     }
     .color3{
         background-color: #F8F8F8;
@@ -84,6 +86,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         font-weight: bold;
         color: black;
         text-align: center;
+        width: 20%;
     }
     .mainLetter{
         font-size: 75px;

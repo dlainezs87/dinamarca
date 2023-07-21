@@ -2,7 +2,7 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">FAQ</h1>
-                    <p class="mb-4">Add new</p>
+                    <p class="mb-4">Agregar Nuevo</p>
                     
 
                     <!-- DataTales Example -->

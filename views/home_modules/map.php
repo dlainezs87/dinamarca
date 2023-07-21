@@ -466,9 +466,7 @@
 			});
 		}
 	);
-</script>
 
-<script type="text/javascript">
 	var rectangle2 = $("#pt");
 	var speechBubble2 = $("#SpeechBubble2");
 
@@ -486,9 +484,7 @@
 			});
 		}
 	);
-</script>
 
-<script type="text/javascript">
 	var rectangle3 = $("#gu");
 	var speechBubble3 = $("#SpeechBubble3");
 
@@ -506,9 +502,7 @@
 			});
 		}
 	);
-</script>
 
-<script type="text/javascript">
 	var rectangle4 = $("#ala");
 	var speechBubble4 = $("#SpeechBubble4");
 
@@ -526,9 +520,7 @@
 			});
 		}
 	);
-</script>
 
-<script type="text/javascript">
 	var rectangle5 = $("#her");
 	var speechBubble5 = $("#SpeechBubble5");
 

@@ -1,8 +1,8 @@
 <?php include("open.php");?>
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Products</h1>
-                    <p class="mb-4">Edit data </p>
+                    <h1 class="h3 mb-2 text-gray-800">Productos</h1>
+                    <p class="mb-4">Editar datos </p>
                     
 
                     <!-- DataTales Example -->

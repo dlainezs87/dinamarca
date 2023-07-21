@@ -40,8 +40,8 @@ if ($query->num_rows > 0) {
                   
                     ?>
 
-                    <p class="mb-4">Add, edit or delete.</p>
-                    <a class="btn btn-primary mb-4" href="imagenes-add.php?idGaleria=<?=$galeria?>">Add new</a>
+                    <p class="mb-4">Agregar, editar o borrar</p>
+                    <a class="btn btn-primary mb-4" href="imagenes-add.php?idGaleria=<?=$galeria?>">Agregar Nuevo</a>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">

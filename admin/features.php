@@ -34,8 +34,8 @@
                     </div>
                     <?php } ?>
 
-                    <p class="mb-4">Add, edit or delete.</p>
-                    <a class="btn btn-primary mb-4" href="features-add.php">Add New</a>
+                    <p class="mb-4">Agregar, editar o borrar</p>
+                    <a class="btn btn-primary mb-4" href="features-add.php">Agregar Nuevo</a>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">

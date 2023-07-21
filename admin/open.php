@@ -33,7 +33,14 @@ if(!isset($_SESSION['sesid'])){
          .sidebar li{
             transition: all 0.3s ease;
         }
+        .active{
+            background-color: #22228c;
+        }
     </style>
+    <!-- dataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.13.5/i18n/es-ES.json"></script>
 </head>
 
 <body id="page-top">

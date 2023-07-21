@@ -30,10 +30,9 @@ if (isset($_GET['err'])) {
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
-
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="10">
+            <table class="table table-bordered" id="myTable" width="100%" cellspacing="10">
                 <thead>
                     <tr>
                         <th class="col-2">Nombre</th>
@@ -74,5 +73,13 @@ if (isset($_GET['err'])) {
         </div>
     </div>
 </div>
-
+<script>
+$(document).ready( function () {
+    var table = new DataTable('#myTable', {
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/es-ES.json',
+        },
+    });
+});
+</script>
 <?php include("footer.php"); ?>

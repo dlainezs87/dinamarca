@@ -25,8 +25,8 @@
                     </div>
                     <?php } ?>
 
-                    <p class="mb-4">Add, edit or delete.</p>
-                    <a class="btn btn-primary mb-4" href="galerias-add.php">Add new</a>
+                    <p class="mb-4">Agregar, editar o borrar</p>
+                    <a class="btn btn-primary mb-4" href="galerias-add.php">Agregar Nuevo</a>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">

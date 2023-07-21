@@ -604,12 +604,16 @@ echo '<script> var base_url = "' . base_url . '"</script>';
 
         var filteredMarkers = [];
         if(nombreFilter != '' && nombreFilter != undefined){
+            let opt = 0;
             for(let sitename of namesMain){
                 if(compararNombres(sitename.nombre, nombreFilter)){
-                    $('#provincias').prepend($('<option value="">Seleccione una provincia</option>'));
-                    $('#provincias').val('');
+                    if(opt == 0){
+                        $('#provincias').prepend($('<option value="">Seleccione una provincia</option>'));
+                        $('#provincias').val('');
+                    }
                     filteredMarkers.push(sitename.point);
                 }
+                opt++;
             }
         }
         if(serviciosFilter != 'all'){

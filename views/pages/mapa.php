@@ -140,18 +140,20 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         <div class="row">
             <div class="col-md-3">
                 <label for="provincias">Provincia</label>
-                <select id="provincias" name="provincias" class="form-control width100"></select>
+                <select id="provincias" name="provincias" class="form-control width100">
+                    <option value="" selected>Todas</option>
+                </select>
             </div>
             <div class="col-md-3">
                 <label for="cantones">Cantón</label>
                 <select id="cantones" name="cantones" class="form-control width100">
-                    <option value="all" selected>Todos</option>
+                    <option value="" selected>Todos</option>
                 </select>
             </div>
             <div class="col-md-3">
                 <label for="servicios">Servicios:</label>
                 <select id="servicios" name="servicios" class="form-control width100">
-                    <option value="all">Todos</option>
+                    <option value="">Todos</option>
                 </select>
             </div>
             <div class="col-md-3">
@@ -305,6 +307,8 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                 });
                 namesMain.push({
                     'nombre':datMap.nombre,
+                    'provincia':datMap.provincia,
+                    'canton':datMap.canton,
                     'point':marker
                 });
 
@@ -600,78 +604,14 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         var provinciaFilter = document.getElementById('provincias').value;
         var cantonFilter = document.getElementById('cantones').value;
         var serviciosFilter = document.getElementById('servicios').value;
-        var nombreFilter = document.getElementById('nombre').value;
-
         var filteredMarkers = [];
-        if(nombreFilter != '' && nombreFilter != undefined){
-            let opt = 0;
-            for(let sitename of namesMain){
-                if(compararNombres(sitename.nombre, nombreFilter)){
-                    if(opt == 0){
-                        $('#provincias').prepend($('<option value="">Seleccione una provincia</option>'));
-                        $('#provincias').val('');
-                    }
-                    filteredMarkers.push(sitename.point);
-                }
-                opt++;
-            }
-        }
-        if(serviciosFilter != 'all'){
-            for(let service of jsonServicios){
-                if(service.idServicio == serviciosFilter){
-                    let prov = service.provincia;
-                    switch (prov) {
-                        case 'San Jose':
-                            filteredMarkers = sj.filter(function(marker) {
-                                var point = marker.getPosition();
-                                return point;
-                            });
-                        break;
-                        case 'Cartago':
-                            filteredMarkers = ca.filter(function(marker) {
-                                var point = marker.getPosition();
-                                return point;
-                            });
-                        break;
-                        case 'Alajuela':
-                            filteredMarkers = al.filter(function(marker) {
-                                var point = marker.getPosition();
-                                return point;
-                            });
-                        break;
-                        case 'Heredia':
-                            filteredMarkers = he.filter(function(marker) {
-                                var point = marker.getPosition();
-                                return point;
-                            });
-                        break;
-                        case 'Limon':
-                            filteredMarkers = li.filter(function(marker) {
-                                var point = marker.getPosition();
-                                return point;
-                            });
-                        break;
-                        case 'Guanacaste':
-                            filteredMarkers = gt.filter(function(marker) {
-                                var point = marker.getPosition();
-                                return point;
-                            });
-                        break;
-                        case 'Puntarenas':
-                            filteredMarkers = pt.filter(function(marker) {
-                                var point = marker.getPosition();
-                                return point;
-                            });
-                        break;
-                    }
-                }
-            }
-        }
-        if(cantonFilter == 'all'){
+        
+        
+        if(cantonFilter == ''){
             if(provinciaFilter != ''){
                 switch (provinciaFilter) {
                     case 'San Jose':
-                        if(serviciosFilter != 'all'){
+                        if(serviciosFilter != ''){
                             for(let service of jsonServicios){
                                 if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
                                     filteredMarkers = sj.filter(function(marker) {
@@ -688,7 +628,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         }
                     break;
                     case 'Alajuela':
-                        if(serviciosFilter != 'all'){
+                        if(serviciosFilter != ''){
                             for(let service of jsonServicios){
                                 if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
                                     filteredMarkers = al.filter(function(marker) {
@@ -705,7 +645,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         }
                     break;
                     case 'Cartago':
-                        if(serviciosFilter != 'all'){
+                        if(serviciosFilter != ''){
                             for(let service of jsonServicios){
                                 if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
                                     filteredMarkers = ca.filter(function(marker) {
@@ -722,7 +662,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         }
                     break;
                     case 'Puntarenas':
-                        if(serviciosFilter != 'all'){
+                        if(serviciosFilter != ''){
                             for(let service of jsonServicios){
                                 if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
                                     filteredMarkers = pt.filter(function(marker) {
@@ -739,7 +679,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         }
                     break;
                     case 'Limón':
-                        if(serviciosFilter != 'all'){
+                        if(serviciosFilter != ''){
                             for(let service of jsonServicios){
                                 if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
                                     filteredMarkers = li.filter(function(marker) {
@@ -756,7 +696,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         }
                     break;
                     case 'Guanacaste':
-                        if(serviciosFilter != 'all'){
+                        if(serviciosFilter != ''){
                             for(let service of jsonServicios){
                                 if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
                                     filteredMarkers = gt.filter(function(marker) {
@@ -773,7 +713,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         }
                     break;
                     case 'Heredia':
-                        if(serviciosFilter != 'all'){
+                        if(serviciosFilter != ''){
                             for(let service of jsonServicios){
                                 if(service.idServicio == serviciosFilter && service.provincia == provinciaFilter){
                                     filteredMarkers = he.filter(function(marker) {
@@ -794,7 +734,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         }else{
             for(let cant of mainCantones){
                 if(cantonFilter == cant.canton){
-                    if(serviciosFilter != 'all'){
+                    if(serviciosFilter != ''){
                         for(let service of jsonServicios){
                             if(service.idServicio == serviciosFilter && service.canton == cantonFilter){
                                 filteredMarkers.push(cant.point);
@@ -810,6 +750,119 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         if (filteredMarkers.length > 0) {
             map.setCenter(filteredMarkers[0].getPosition());
         }
+    }
+    function showInfoBlocks(prov, total){
+        var selectCantones = $('#cantones');
+        selectCantones.empty();
+        selectCantones.append($('<option></option>', {value: '', text: 'Todos', selected:selected}));
+        
+        for(let i=1;i<=total;i++){
+            $('#counter'+i).hide();
+        }
+
+        $('.al').css('display', 'none');
+        $('.ca').css('display', 'none');
+        $('.he').css('display', 'none');
+        $('.li').css('display', 'none');
+        $('.gu').css('display', 'none');
+        $('.pu').css('display', 'none');                        
+        $('.sj').css('display', 'none');
+
+        switch (prov) {
+            case 'San Jose':
+                $('.sj').css('display', 'flex');
+                if(sjc.length > 0){
+                    var validator = [];
+                    for(let i=0;i<sjc.length;i++){
+                        if(!validator.includes(sjc[i])){
+                            var selected = (i==0) ? true: false;
+                            selectCantones.append($('<option></option>', {value: sjc[i], text: sjc[i], selected:selected}));
+                            validator.push(sjc[i]);
+                        }
+                    }
+                }
+            break;
+            case 'Alajuela':
+                $('.al').css('display', 'flex');
+                if(alc.length > 0){
+                    var validator = [];
+                    for(let j=0;j<alc.length;j++){
+                        if(!validator.includes(alc[j])){
+                            var selected = (j==0) ? true: false;
+                            selectCantones.append($('<option></option>', {value: alc[j], text: alc[j], selected:selected}));
+                            validator.push(alc[j]);
+                        }
+                    }
+                }
+            break;
+            case 'Cartago':
+                $('.ca').css('display','flex');
+                if(cac.length > 0){
+                    var validator = [];
+                    for(let k=0;k<cac.length;k++){
+                        if(!validator.includes(cac[k])){
+                            var selected = (k==0) ? true: false;
+                            selectCantones.append($('<option></option>', {value: cac[k], text: cac[k], selected:selected}));
+                            validator.push(cac[k]);
+                        }
+                    }
+                }
+            break;
+            case 'Heredia':
+                $('.he').css('display','flex');
+                if(hec.length > 0){
+                    var validator = [];
+                    for(let l=0;l<hec.length;l++){
+                        if(!validator.includes(hec[l])){
+                            var selected = (l==0) ? true: false;
+                            selectCantones.append($('<option></option>', {value: hec[l], text: hec[l], selected:selected}));
+                            validator.push(hec[l]);
+                        }
+                    }
+                }
+            break;
+            case 'Limon':
+                $('.li').css('display', 'flex');
+                if(lic.length > 0){
+                    var validator = [];
+                    for(let m=0;m<lic.length;m++){
+                        if(!validator.includes(lic[m])){
+                            var selected = (m==0) ? true: false;
+                            selectCantones.append($('<option></option>', {value: lic[m], text: lic[m], selected:selected}));
+                            validator.push(lic[m]);
+                        }
+                    }
+                }
+            break;
+            case 'Puntarenas':
+                $('.pu').css('display','flex');
+                if(ptc.length > 0){
+                    var validator = [];
+                    for(let n=0;n<ptc.length;n++){
+                        if(!validator.includes(ptc[n])){
+                            var selected = (n==0) ? true: false;
+                            selectCantones.append($('<option></option>', {value: ptc[n], text: ptc[n], selected:selected}));
+                            validator.push(ptc[n]);
+                        }
+                    }
+                }
+            break;
+            case 'Guanacaste':
+                $('.gu').css('display','flex');
+                if(gtc.length > 0){
+                    var validator = [];
+                    for(let o=0;o<gtc.length;o++){
+                        if(!validator.includes(gtc[o])){
+                            var selected = (o==0) ? true: false;
+                            selectCantones.append($('<option></option>', {value: gtc[o], text: gtc[o], selected:selected}));
+                            validator.push(gtc[o]);
+                        }
+                    }
+                }
+            break;
+        }
+
+        applyFilters();
     }
     $(document).ready(function(){
         provinciaSel = $('#provincias');
@@ -830,159 +883,88 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         }
 
         $( "#nombre" ).on( "keyup", function() {
-            applyFilters();
+            if($(this).val() != '' && $(this).val() != undefined){
+                var filteredMarkers = [];
+                var pointProvince = [];
+                for(let sitename of namesMain){
+                    if(compararNombres(sitename.nombre, $(this).val())){
+                        $('#provincias').val('');
+                        $('#cantones').val('');
+                        filteredMarkers.push(sitename.point);
+                        pointProvince.push(sitename.provincia);
+                    }
+                }
+            }
+            if(filteredMarkers.length > 0) {
+                map.setCenter(filteredMarkers[0].getPosition());
+                showInfoBlocks(pointProvince[0], 0);
+            }
         });
+
         $('#cantones').on('change', function(){
             applyFilters();
         });
+
         $('#servicios').on('change', function(){
-            applyFilters();
+            $( "#nombre" ).val('');
+
+            if($(this).val() != ''){
+                for(let service of jsonServicios){
+                    if(service.idServicio == $(this).val()){
+                        let prov = service.provincia;
+                        switch (prov){
+                            case 'San Jose':
+                                filteredMarkers = sj.filter(function(marker) {
+                                    var point = marker.getPosition();
+                                    return point;
+                                });
+                            break;
+                            case 'Cartago':
+                                filteredMarkers = ca.filter(function(marker) {
+                                    var point = marker.getPosition();
+                                    return point;
+                                });
+                            break;
+                            case 'Alajuela':
+                                filteredMarkers = al.filter(function(marker) {
+                                    var point = marker.getPosition();
+                                    return point;
+                                });
+                            break;
+                            case 'Heredia':
+                                filteredMarkers = he.filter(function(marker) {
+                                    var point = marker.getPosition();
+                                    return point;
+                                });
+                            break;
+                            case 'Limon':
+                                filteredMarkers = li.filter(function(marker) {
+                                    var point = marker.getPosition();
+                                    return point;
+                                });
+                            break;
+                            case 'Guanacaste':
+                                filteredMarkers = gt.filter(function(marker) {
+                                    var point = marker.getPosition();
+                                    return point;
+                                });
+                            break;
+                            case 'Puntarenas':
+                                filteredMarkers = pt.filter(function(marker) {
+                                    var point = marker.getPosition();
+                                    return point;
+                                });
+                            break;
+                        }
+
+                        showInfoBlocks(prov, total);
+                    }
+                }
+            }
         });
+
         $('#provincias').on('change', function(){
-            var prov = $(this).val();
-            var selectCantones = $('#cantones');
-            selectCantones.empty();
-            for(let i=1;i<=total;i++){
-                $('#counter'+i).hide();
-            }
-
-            switch (prov) {
-                case 'San Jose':
-                    $('.al').css('display', 'none');
-                    $('.ca').css('display', 'none');
-                    $('.he').css('display', 'none');
-                    $('.li').css('display', 'none');
-                    $('.gu').css('display', 'none');
-                    $('.pu').css('display', 'none');                        
-                    $('.sj').css('display', 'flex');
-                    if(sjc.length > 0){
-                        var validator = [];
-                        for(let i=0;i<sjc.length;i++){
-                            if(!validator.includes(sjc[i])){
-                                var selected = (i==0) ? true: false;
-                                selectCantones.append($('<option></option>', {value: sjc[i], text: sjc[i], selected:selected}));
-                                validator.push(sjc[i]);
-                            }
-                        }
-                    }
-                break;
-                case 'Alajuela':
-                    $('.sj').css('display', 'none');
-                    $('.ca').css('display', 'none');
-                    $('.he').css('display', 'none');
-                    $('.li').css('display', 'none');
-                    $('.gu').css('display', 'none');
-                    $('.pu').css('display', 'none');  
-                    $('.al').css('display', 'flex');
-                    if(alc.length > 0){
-                        var validator = [];
-                        for(let j=0;j<alc.length;j++){
-                            if(!validator.includes(alc[j])){
-                                var selected = (j==0) ? true: false;
-                                selectCantones.append($('<option></option>', {value: alc[j], text: alc[j], selected:selected}));
-                                validator.push(alc[j]);
-                            }
-                        }
-                    }
-                break;
-                case 'Cartago':
-                    $('.sj').css('display','none');
-                    $('.al').css('display','none');
-                    $('.he').css('display','none');
-                    $('.li').css('display','none');
-                    $('.gu').css('display','none');
-                    $('.pu').css('display','none');  
-                    $('.ca').css('display','flex');
-                    if(cac.length > 0){
-                        var validator = [];
-                        for(let k=0;k<cac.length;k++){
-                            if(!validator.includes(cac[k])){
-                                var selected = (k==0) ? true: false;
-                                selectCantones.append($('<option></option>', {value: cac[k], text: cac[k], selected:selected}));
-                                validator.push(cac[k]);
-                            }
-                        }
-                    }
-                break;
-                case 'Heredia':
-                    $('.sj').css('display','none');
-                    $('.al').css('display','none');
-                    $('.gu').css('display','none');
-                    $('.pu').css('display','none');
-                    $('.li').css('display','none');
-                    $('.ca').css('display','none');
-                    $('.he').css('display','flex');
-                    if(hec.length > 0){
-                        var validator = [];
-                        for(let l=0;l<hec.length;l++){
-                            if(!validator.includes(hec[l])){
-                                var selected = (l==0) ? true: false;
-                                selectCantones.append($('<option></option>', {value: hec[l], text: hec[l], selected:selected}));
-                                validator.push(hec[l]);
-                            }
-                        }
-                    }
-                break;
-                case 'Limón':
-                    $('.sj').css('display', 'none');
-                    $('.al').css('display', 'none');
-                    $('.he').css('display', 'none');
-                    $('.pu').css('display', 'none');
-                    $('.gu').css('display', 'none');
-                    $('.ca').css('display', 'none');
-                    $('.li').css('display', 'flex');
-                    if(lic.length > 0){
-                        var validator = [];
-                        for(let m=0;m<lic.length;m++){
-                            if(!validator.includes(lic[m])){
-                                var selected = (m==0) ? true: false;
-                                selectCantones.append($('<option></option>', {value: lic[m], text: lic[m], selected:selected}));
-                                validator.push(lic[m]);
-                            }
-                        }
-                    }
-                break;
-                case 'Puntarenas':
-                    $('.sj').css('display','none');
-                    $('.al').css('display','none');
-                    $('.he').css('display','none');
-                    $('.li').css('display','none');
-                    $('.gu').css('display','none');
-                    $('.ca').css('display','none');
-                    $('.pu').css('display','flex');
-                    if(ptc.length > 0){
-                        var validator = [];
-                        for(let n=0;n<ptc.length;n++){
-                            if(!validator.includes(ptc[n])){
-                                var selected = (n==0) ? true: false;
-                                selectCantones.append($('<option></option>', {value: ptc[n], text: ptc[n], selected:selected}));
-                                validator.push(ptc[n]);
-                            }
-                        }
-                    }
-                break;
-                case 'Guanacaste':
-                    $('.sj').css('display','none');
-                    $('.al').css('display','none');
-                    $('.he').css('display','none');
-                    $('.pu').css('display','none');
-                    $('.li').css('display','none');
-                    $('.ca').css('display','none');
-                    $('.gu').css('display','flex');
-                    if(gtc.length > 0){
-                        var validator = [];
-                        for(let o=0;o<gtc.length;o++){
-                            if(!validator.includes(gtc[o])){
-                                var selected = (o==0) ? true: false;
-                                selectCantones.append($('<option></option>', {value: gtc[o], text: gtc[o], selected:selected}));
-                                validator.push(gtc[o]);
-                            }
-                        }
-                    }
-                break;
-            }
-
-            applyFilters();
+            showInfoBlocks($(this).val(), total);
         });
 
         for(let serv of jsonServicios){
@@ -999,5 +981,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
             }
         }
     });
+
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeXI4o0HJ8WLtu178RiSlNiJrGlb5l-nw&callback=initMap" async defer></script>

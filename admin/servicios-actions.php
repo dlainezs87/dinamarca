@@ -6,13 +6,15 @@ if($_POST['action']=="add"){
     $titulo = addslashes($_POST['titulo']);
     $descripcion = addslashes($_POST['descripcion']);
     $destacado = addslashes($_POST['destacado']);
+    $categoria = addslashes($_POST['categoria']);
     //insert
     $sql = "insert into servicios(titulo,
-                                descripcion,destacado)
+                                descripcion,destacado,categoria)
                         values(
                             '".$titulo."',
                             '".$descripcion."',
-                            '".$destacado."'
+                            '".$destacado."',
+                            '".$categoria."'
                         )";
     if($mysqli->query($sql)){ 
         $idgen = $mysqli->insert_id;
@@ -47,13 +49,15 @@ if($_POST['action']=="edit"){
     $id = (int)addslashes($_POST['id']);
     $status = addslashes($_POST['status']);
     $destacado = addslashes($_POST['destacado']);
+    $categoria = addslashes($_POST['categoria']);
  
     //insert
     $sql = "update servicios set 
                     titulo = '".$titulo."',
                     descripcion = '".$descripcion."',
                       status = '". $status."',
-                      destacado = '".$destacado."'
+                      destacado = '".$destacado."',
+                      status = '". $categoria."',
                     where id = " . $id;
     if($mysqli->query($sql)){ 
         $idgen = $id;

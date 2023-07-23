@@ -1,7 +1,7 @@
 <?php include("open.php");?>
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Convenios</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Testimonios</h1>
                     <p class="mb-4">Edit</p>
                     
 
@@ -30,7 +30,7 @@
                          
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Desripción:</label>
-                                <textarea class="form-control" name="descripcion" id="description" cols="30" rows="10"><?php echo $row['contenido']?></textarea>
+                                <textarea class="form-control" name="descripcion" id="description" cols="30" rows="10"><?php echo $row['descripcion']?></textarea>
                             </div>
 
             

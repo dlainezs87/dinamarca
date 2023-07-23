@@ -43,12 +43,14 @@ if(isset($_POST['action'])){
     }//ADD
     if($_POST['action']=="edit"){
         //get values
+        $id = (int)addslashes($_POST['id']);
         $titulo = addslashes($_POST['titulo']);
         $contenido = addslashes($_POST['contenido']);
         //insert
         $sql = "update convenios set 
                         titulo = '".$titulo."',
-                        descripcion = '".$contenido;
+                        descripcion = '".$contenido."'
+                        where id = " . $id;
 
 
         if($mysqli->query($sql)){ 

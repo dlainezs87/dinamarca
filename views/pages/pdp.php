@@ -122,7 +122,7 @@ $row = $query->fetch_assoc();
 							<div class="form-outline">
 	                                                    <input type="hidden" name="product" value="<?=$row['titulo']?>">
 	                                                    <input type="hidden" name="id" value="<?=$row['id']?>">
-							  <input type="number" id="form12" name="amount" class="form-control" placeholder="Quantity (Only numbers)" />
+							  <input type="number" id="form12" name="amount" class="form-control" placeholder="Cantidad (Solo números)" />
 							</div>
 							<div style="padding-top:15px;" class="form-group purple-border">
 							  <textarea class="form-control" name="note" id="exampleFormControlTextarea4" rows="3" placeholder="Notas"></textarea>

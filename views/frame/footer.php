@@ -9,35 +9,20 @@
               Informacion de contacto
             </h4>
             <div class="contact_link_box">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
-                  San José, Costa Rica
-                </span>
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>
-                  Whatsapp: 8479-4545 
-                </span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>
-                  servicioalcliente@clinicadinamarca.com
-                </span>
-              </a>
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i> San José, Costa Rica</p>
+                <p><i class="fa fa-phone" aria-hidden="true"></i> Whatsapp: 8479-4545</p>
+                <p><i class="fa fa-envelope" aria-hidden="true"></i> servicioalcliente@clinicadinamarca.com</p>
             </div>
           </div>
           <div class="footer_social">
             <a href="https://www.facebook.com/clinicadinamarcacr">
-              <i class="fa fa-facebook" aria-hidden="true"></i>
+              <i style="color:#3A559F;" class="fa fa-facebook" aria-hidden="true"></i>
             </a>
             <a href="https://wa.me/50684794545">
-              <i class="fa fa-whatsapp" aria-hidden="true"></i>
+              <i style="color:#29A71A;" class="fa fa-whatsapp" aria-hidden="true"></i>
             </a>
             <a href="https://www.instagram.com/clinicadinamarca/">
-              <i class="fa fa-instagram" aria-hidden="true"></i>
+              <i style="color:#AC1C8A;" class="fa fa-instagram" aria-hidden="true"></i>
             </a>
           </div>
         </div>

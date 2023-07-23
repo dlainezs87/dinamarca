@@ -1651,13 +1651,13 @@ background: linear-gradient(0deg, rgba(16,79,158,0.9249824929971989) 0%, rgba(16
                 <div class="">
                   <div class="footer_social">
                   <a style="color:black;font-size:22px;" href="https://www.facebook.com/clinicadinamarcacr">
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i style="color:#3A559F;" class="fa fa-facebook" aria-hidden="true"></i>
                   </a>&nbsp;&nbsp;
                   <a style="color:black;font-size:22px;" href="https://wa.me/50684794545">
-                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                    <i style="color:#29A71A;" class="fa fa-whatsapp" aria-hidden="true"></i>
                   </a>&nbsp;&nbsp;
                   <a style="color:black;font-size:22px;" href="https://www.instagram.com/clinicadinamarca/">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i style="color:#AC1C8A;" class="fa fa-instagram" aria-hidden="true"></i>
                   </a>
                 </div>
                 </div>

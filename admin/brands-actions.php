@@ -40,11 +40,11 @@ if(isset($_POST['action'])){
     }//ADD
     if($_POST['action']=="edit"){
         //get values
-        $name = addslashes($_POST['name']);
+        $name = addslashes($_POST['link']);
         $id = (int)addslashes($_POST['id']);
         //insert
         $sql = "update brands set 
-                        name = '".$name."'
+                        link = '".$name."'
                         where id = " . $id;
 
 

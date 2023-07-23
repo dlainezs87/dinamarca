@@ -188,48 +188,48 @@
 						<img src="images/cr.png">
 						<div id="sj" class="point sj tippy" data-toggle="collapse" data-target="#collapseOne" title="">
 							<i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
-							<div id="SpeechBubble">
+							<!--<div id="SpeechBubble">
 								<p style="font-size:9px;padding-top:10px;">
 									<span style="font-size:12px;font-weight:bolder;">San Jose</span><br>
 									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
 								</p>
-							</div>
+							</div>-->
 						</div>
 						<div id="pt" class="point pt tippy" data-toggle="collapse" data-target="#collapseTwo" title="">
 							<i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
-							<div id="SpeechBubble2">
+							<!--<div id="SpeechBubble2">
 								<p style="font-size:9px;padding-top:10px;">
 									<span style="font-size:12px;font-weight:bolder;">Puntarenas</span><br>
 									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
 								</p>
-							</div>
+							</div>-->
 						</div>
 						<div id="gu" class="point gu tippy" data-toggle="collapse" data-target="#collapseThree" title="">
 							<i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
-							<div id="SpeechBubble3">
+							<!--<div id="SpeechBubble3">
 								<p style="font-size:9px;padding-top:10px;">
 									<span style="font-size:12px;font-weight:bolder;">Guanacaste</span><br>
 									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
 								</p>
-							</div>
+							</div>-->
 						</div>
 						<div id="ala" class="point ala tippy" data-toggle="collapse" data-target="#collapseFour" title="">
 							<i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
-							<div id="SpeechBubble4">
+							<!--<div id="SpeechBubble4">
 								<p style="font-size:9px;padding-top:10px;">
 									<span style="font-size:12px;font-weight:bolder;">Alajuela</span><br>
 									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
 								</p>
-							</div>
+							</div>-->
 						</div>
 						<div id="her" class="point her tippy" data-toggle="collapse" data-target="#collapseFive" title="">
 							<i style="font-size:32px;color:#76BD41;z-index:500;" class="fas fa-map-marker-alt"></i>
-							<div id="SpeechBubble5">
+							<!--<div id="SpeechBubble5">
 								<p style="font-size:9px;padding-top:10px;">
 									<span style="font-size:12px;font-weight:bolder;">Heredia</span><br>
 									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
 								</p>
-							</div>
+							</div>-->
 						</div>
 					</div>
 				</div>

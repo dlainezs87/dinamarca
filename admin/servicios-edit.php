@@ -28,11 +28,14 @@
                             </div>
 
                             
-         
-
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Description:</label>
                                 <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="10"><?php echo $row['descripcion']?></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Categoria:</label>
+                                <input type="text" required class="form-control" id="categoria" name="categoria" placeholder="">
                             </div>
 
                             <div class="form-group">

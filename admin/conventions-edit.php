@@ -30,7 +30,7 @@
                          
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Content:</label>
-                                <textarea class="form-control" name="contenido" id="contenido" cols="30" rows="10"><?php echo $row['contenido']?></textarea>
+                                <textarea class="form-control" name="contenido" id="contenido" cols="30" rows="10"><?php echo $row['descripcion']?></textarea>
                             </div>
 
             

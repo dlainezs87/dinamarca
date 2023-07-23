@@ -17,8 +17,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Video:</label>
-                                <input class="form-control" name="file_video" id="file_video" type="file"/>
+                                <label for="exampleInputEmail1">Embed Youtube:</label>
+                                <textarea class="form-control" name="video" id="video" cols="30" rows="10"></textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Add</button>

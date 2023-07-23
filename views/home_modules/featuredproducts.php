@@ -2,7 +2,7 @@
 
 <?php 
 include("config/conexion.php");
-$sql = "select * FROM servicios WHERE status = 'Activo' order by id ASC";
+$sql = "select * FROM servicios WHERE destacado = 'featured' order by id ASC";
 $query = $mysqli->query($sql);
 $cont = 0;
 ?>

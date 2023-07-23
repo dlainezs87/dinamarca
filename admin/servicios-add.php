@@ -22,7 +22,9 @@
                             </div>
 
                            <div class="form-group">
-                                <label for="exampleInputEmail1">Categoria:</label>
+                                <label for="exampleInputEmail1">Categoria:</label><br>
+                                <label for="exampleInputEmail1">Las categorias disponibles que puede utilzar son: audifonos, accesorios, implantes, audiologico</label><br>
+                                <label for="exampleInputEmail1">Deben ser escritas en minuscula</label>
                                 <input type="text" required class="form-control" id="categoria" name="categoria" placeholder="">
                             </div>
 

@@ -28,7 +28,6 @@
     <p class="mb-4">Agregar, editar o borrar</p>
     <a class="btn btn-primary mb-4" href="testimony-add.php">Agregar Nuevo</a>
 
-<<<<<<< Updated upstream
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
     
@@ -55,8 +54,8 @@
                             <td><?php echo $row['descripcion']?></td>
                             <td><img src="../assets/testimonios/<?php echo $row['imagen']?>" width="50px" alt="ilearn"></td>
                         <td class="text-center">
-                            <a href="conventions-edit.php?id=<?php echo $row['id']?>"><i class="fas fa-edit"></i></a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                            <a href="conventions-actions.php?del=true&id=<?php echo $row['id']?>" onclick="return confirm('Do you want to continue? It will be permanently deleted')"><i class="fas fa-trash-alt"></i></a>
+                            <a href="testimony-edit.php?id=<?php echo $row['id']?>"><i class="fas fa-edit"></i></a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                            <a href="testimony-actions.php?del=true&id=<?php echo $row['id']?>" onclick="return confirm('Do you want to continue? It will be permanently deleted')"><i class="fas fa-trash-alt"></i></a>
                         </td>
                             
                         </tr>
@@ -79,47 +78,4 @@ $(document).ready( function () {
 });
 </script>
 <?php include("footer.php");?>
-=======
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                    
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="10">
-                                    <thead>
-                                        <tr>
-                                            <th class="col-2">Name</th>
-                                            <th class="col-8">Testimony</th>
-                                            <th class="col-3">Image</th>
-                                            <th class="col-2 text-center">Actions</th>   
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        require_once '../config/conexion.php';
-                                        $sql = "select * from testimonios";
-                                        $query = $mysqli->query($sql);
-                                        while($row = $query->fetch_assoc()){
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $row['nombre']?></td>
-                                            <td><?php echo $row['descripcion']?></td>
-                                            <td><img src="../assets/testimonios/<?php echo $row['imagen']?>" width="50px" alt="ilearn"></td>
-                                        <td class="text-center">
-                                            <a href="testimony-edit.php?id=<?php echo $row['id']?>"><i class="fas fa-edit"></i></a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                                            <a href="testimony-actions.php?del=true&id=<?php echo $row['id']?>" onclick="return confirm('Do you want to continue? It will be permanently deleted')"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                          
-                                        </tr>
-                                        <?php 
-                                        }//while
-                                        $mysqli->close();?>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
 
-                <?php include("footer.php");?>
->>>>>>> Stashed changes

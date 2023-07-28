@@ -23,9 +23,15 @@
 
                            <div class="form-group">
                                 <label for="exampleInputEmail1">Categoria:</label><br>
-                                <label for="exampleInputEmail1">Las categorias disponibles que puede utilzar son: audifonos, accesorios, implantes, audiologico</label><br>
-                                <label for="exampleInputEmail1">Deben ser escritas en minuscula</label>
-                                <input type="text" required class="form-control" id="categoria" name="categoria" placeholder="">
+                                <div class="col-3 form-group">
+                                    <select class="form-select form-control" id="categoria" name="categoria">
+                                        <option value="">Seleccione una opci&oacute;n</option>
+                                        <option value="audifonos">Audífonos</option>
+                                        <option value="accesorios" selected>Accesorios</option>
+                                        <option value="implantes" selected>Implantes</option>
+                                        <option value="audiologico" selected>Audiológicos</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="form-group">

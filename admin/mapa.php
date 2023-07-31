@@ -46,7 +46,7 @@ if (isset($_GET['err'])) {
                 </thead>
                 <tbody>
                     <?php
-                    include("conn.php");
+                    include("../config/conexion.php");
                     $sql = "select * from mapa order by Nombre ASC";
                     $query = $mysqli->query($sql);
                     while ($row = $query->fetch_assoc()) {

@@ -50,6 +50,14 @@ $row = $query->fetch_assoc();
         .thumb:hover {
             cursor: pointer;
         }
+	.owl-carousel.owl-drag .owl-item{
+	padding:10px !important;
+	}
+	.slider_item{
+	padding:10px;
+		width:100% !important;
+	}
+	
     </style>
 
 <section>
@@ -81,10 +89,13 @@ $row = $query->fetch_assoc();
 				<div style="margin-top:20px;"></div>
 				<div class="row mx-auto my-auto">
 	            <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-	                <div class="carousel-inner w-100" role="listbox">
+	                <div class="carousel-in w-100" role="listbox">
 	                	
 	                		<div class="slider">
-						      <div class="slider__wrapper">
+						      <div id="carousel-service" class="slider_new owl-carousel owl-theme">
+								  <div class="slider_item">
+						        		<img style="cursor:pointer;object-fit: cover;" src="<?=base_url.$path?>" bigsrc="<?=base_url?>assets/imagenes/<?=$row['imagen']?>" class="imgs" id="the_id">
+								</div>
 						      	<?php
 					             include("config/conexion.php");
 					             $sql = "select * from imagenesservicios where idProduct = '".$id."' order by id ASC";
@@ -92,15 +103,13 @@ $row = $query->fetch_assoc();
 					       
 					             while($row = $query->fetch_assoc()){
 					            ?>
-						        <div class="slider__item">
-						        		<img style="width:100%;cursor:pointer;" src="<?=base_url?>assets/imagenes/<?=$row['imagen']?>" bigsrc="<?=base_url?>assets/imagenes/<?=$row['imagen']?>" class="imgs" id="the_id">
+						        <div class="slider_item">
+						        		<img style="cursor:pointer;object-fit: cover;" src="<?=base_url?>assets/imagenes/<?=$row['imagen']?>" bigsrc="<?=base_url?>assets/imagenes/<?=$row['imagen']?>" class="imgs" id="the_id">
 								</div>
 						        <?php
 			                	}
 								?>
 						      </div>
-						      <a class="slider__control slider__control_left" href="#" role="button"></a>
-						      <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
 						    </div>
 	            </div>
 	        </div>
@@ -143,4 +152,37 @@ $row = $query->fetch_assoc();
 </section>
 
 <div style="margin:30px;"></div>
+<script>
+$('#carousel-service').owlCarousel({
+       autoHeight: false,
+       autoHeightClass: 'owl-height',
+       items:1,
+       pagination:true,
+       autoplay:true,
+       autoplayTimeout: 4000,
+       autoplayHoverPause:true,
+       loop:true,
+       dots:false,
+       center:true,
+       responsive:{
+                0:{
+                    items:3
+                },
+                800:{
+                    items:3
+                },
+                1200:{
+                    items:3
+                },
+                
+                1400:{
+                    items:3
+                },
+                1900:{
+                    items:3
+                }
+      }
+   });
+	$(".owl-nav").prop('disabled', true);
+</script>
 

@@ -57,8 +57,9 @@ if($_POST['action']=="edit"){
                     descripcion = '".$descripcion."',
                       status = '". $status."',
                       destacado = '".$destacado."',
-                      status = '". $categoria."',
+                      categoria = '". $categoria."'
                     where id = " . $id;
+	
     if($mysqli->query($sql)){ 
         $idgen = $id;
        $archivo = $_FILES['imagen']['name'];

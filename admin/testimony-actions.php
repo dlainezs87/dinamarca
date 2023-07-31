@@ -44,11 +44,12 @@ if(isset($_POST['action'])){
     if($_POST['action']=="edit"){
         //get values
         $nombre = addslashes($_POST['nombre']);
+		$id = addslashes($_POST['id']);
         $descripcion = addslashes($_POST['descripcion']);
         //insert
         $sql = "update testimonios set 
                         nombre = '".$nombre."',
-                        descripcion = '".$descripcion;
+                        descripcion = '".$descripcion ."' WHERE id = ".$id.";";
 
 
         if($mysqli->query($sql)){ 

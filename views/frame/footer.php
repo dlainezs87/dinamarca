@@ -99,6 +99,7 @@
         >
         <i class="fas fa-arrow-up"></i>
   </button>
+<div id="box_w" class="box_w animate__animated animate__bounceIn"><div class="btn_w"><a href="https://wa.me/+50684794545?text=Hola!%20Estoy%20interesado%20en%20tu%20servicio" target="_blank"><i class="fab fa-whatsapp"></i></a></div></div>
 
   <!-- footer section -->
 
@@ -391,7 +392,7 @@
   <script>
     //Get the button
     let mybutton = document.getElementById("btn-back-to-top");
-
+    let WAbtn =document.getElementById("box_w");
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function () {
       scrollFunction();
@@ -402,8 +403,10 @@
         document.body.scrollTop > 20 ||
         document.documentElement.scrollTop > 20
       ) {
+        WAbtn.style.display = "block";
         mybutton.style.display = "block";
       } else {
+        WAbtn.style.display = "none";
         mybutton.style.display = "none";
       }
     }

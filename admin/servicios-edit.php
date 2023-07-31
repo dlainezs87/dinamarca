@@ -34,8 +34,16 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Categoria:</label>
-                                <input type="text" required class="form-control" id="categoria" name="categoria" placeholder="">
+                                <label for="exampleInputEmail1">Categoria:</label><br>
+                                <div class="col-3 form-group">
+                                    <select class="form-select form-control" id="categoria" name="categoria">
+                                        <option value="">Seleccione una opci&oacute;n</option>
+                                        <option value="audifonos">Audífonos</option>
+                                        <option value="accesorios" selected>Accesorios</option>
+                                        <option value="implantes" selected>Implantes</option>
+                                        <option value="audiologico" selected>Audiológicos</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -54,9 +62,7 @@
                                 while($row = $query->fetch_assoc()){ 
                                 ?>
                                 <label>This product is in the state: <?=$row['destacado']?></label><br>
-                                <?php 
-                                } 
-                                ?>
+                                
                                 <label for="cars">You want to highlight this product?:</label>
                                 <select name="destacado" id="destacado">
                                   <option value="featured">Yes</option>
@@ -71,7 +77,8 @@
                                 <label for="exampleInputEmail1">Current:</label>
                                 <img src="../assets/imagenes/<?php echo $row['imagen']?>" width="100px" alt="Img blog">
                             </div>
-                            <?php } ?>
+                            <?php }
+					}?>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Image: * Recommend 960 x 599px</label>

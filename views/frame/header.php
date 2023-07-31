@@ -23,8 +23,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <!--owl slider stylesheet -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+ <!--CAROUSEL.css------------->
+  <link rel="stylesheet" href="css/owl.carousel.min.css" integrity="" crossorigin="anonymous" />
 
+	
 <!-- font awesome style -->
 <link href="css/font-awesome.min.css" rel="stylesheet" />
 
@@ -43,7 +45,7 @@
   <script src="https://kit.fontawesome.com/b58e5dabf0.js" crossorigin="anonymous"></script>
   
   <!--CAROUSEL.css------------->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./css/owl.carousel.min.css" integrity="" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="" crossorigin="anonymous"></script>
 
 
@@ -1606,6 +1608,38 @@ background: linear-gradient(0deg, rgba(16,79,158,0.9249824929971989) 0%, rgba(16
     right: 20px;
     display: none;
   }
+  .box_w{
+z-index:200;
+position:fixed;
+left:30px;
+bottom:20px;
+cursor:pointer;
+display:none;
+}
+
+.box_w .btn_w:hover{
+opacity:0.7;
+}
+.box_w .btn_w a{
+text-decoration: none;
+color:white;
+}
+.box_w .btn_w{
+    background-color:#25D366;
+    border-radius: 50%;
+    color:white;
+    width:50px;
+    margin:auto;
+    height:50px;
+    display:flex;
+    justify-content: center;
+    transition:all 0.3s ease;
+}
+
+.box_w .btn_w a {
+    font-size:35px;
+    margin:auto;
+}
 
  </style>
 </head>

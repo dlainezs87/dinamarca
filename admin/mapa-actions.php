@@ -16,6 +16,7 @@ if (isset($_POST['action'])) {
         $horario   = (!empty($_POST['horario'])) ? addslashes($_POST['horario']): '';
         $whatsapp  = (!empty($_POST['whatsapp'])) ? addslashes($_POST['whatsapp']): '';
         $url       = (!empty($_POST['url'])) ? addslashes($_POST['url']): '';
+        $waze      = (!empty($_POST['waze'])) ? addslashes($_POST['waze']): '';
         $opcionesSeleccionadas = (!empty($_POST['servicios'])) ? $_POST['servicios']: [];
 
         if($provincia != 'Todas' || $canton != 'Todos'){
@@ -31,7 +32,8 @@ if (isset($_POST['action'])) {
                 `telefono`,
                 `horario`,
                 `whatsapp`,
-                `url`
+                `url`,
+                `waze`
                 )values(
                     '" . $principal . "',
                     '" . $latitud . "',
@@ -44,7 +46,8 @@ if (isset($_POST['action'])) {
                     '" . $telefono . "',
                     '" . $horario . "',
                     '" . $whatsapp . "',
-                    '" . $url . "'
+                    '" . $url . "',
+                    '" . $waze . "'
                 )";
             if ($mysqli->query($sql)) {
                 $idgen = $mysqli->insert_id;
@@ -115,6 +118,7 @@ if (isset($_POST['action'])) {
         $horario   = (!empty($_POST['horario'])) ? addslashes($_POST['horario']): '';
         $whatsapp  = (!empty($_POST['whatsapp'])) ? addslashes($_POST['whatsapp']): '';
         $url       = (!empty($_POST['url'])) ? addslashes($_POST['url']): '';
+        $waze      = (!empty($_POST['waze'])) ? addslashes($_POST['waze']): '';
         $id        = (!empty($_POST['id'])) ? (int)addslashes($_POST['id']): 0;
         $opcionesSeleccionadas = (!empty($_POST['servicios'])) ? $_POST['servicios']: [];
 
@@ -158,8 +162,9 @@ if (isset($_POST['action'])) {
                 `telefono` = '"  . $telefono . "',
                 `horario` = '"   . $horario . "',
                 `whatsapp` = '"  . $whatsapp . "',
-                `url` = '"       . $url . "'
-                where id = "     . $id;
+                `url` = '"       . $url . "',
+                `waze` = '"      . $waze . "'
+                WHERE id = "     . $id;
             if ($mysqli->query($sql)) {
                 $idgen = $id;
     

@@ -77,6 +77,12 @@ include("../config/parameters.php");
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-4 form-group">
+                        <label for="waze">Waze:</label>
+                        <input type="text" class="form-control" id="waze" name="waze" value="<?php echo $row['waze'] ?>" placeholder="Link Waze">
+                    </div>
+                </div>
+                <div class="row">
                     <?php
                         $arrServ = [];
                         include("conn.php");

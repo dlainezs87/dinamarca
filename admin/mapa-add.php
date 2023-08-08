@@ -64,6 +64,12 @@
             </div>
             <div class="row">
                 <div class="col-4 form-group">
+                    <label for="waze">Waze:</label>
+                    <input type="text" class="form-control" id="waze" name="waze" placeholder="Link Waze">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 form-group">
                     <label for="texto">Servicios: (ctrl + click)</label>
                     <select name="servicios[]" class="form-select form-control" id="servicios" multiple>
                     <?php

@@ -1,4 +1,4 @@
 <?php
-define("base_url", "https://localhost/dinamarca-master/");
+define("base_url", "http://localhost/dinamarca/");
 
 

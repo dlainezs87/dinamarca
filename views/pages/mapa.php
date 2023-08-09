@@ -97,7 +97,8 @@ echo '<script> var base_url = "' . base_url . '"</script>';
     }
     .grey2{
         background-color: #f0efef;
-        width: 50%;
+        width: 30%;
+        min-width: 30%;
     }
     .alajuela{
         display: none;
@@ -161,7 +162,7 @@ echo '<script> var base_url = "' . base_url . '"</script>';
             </div>
             <div class="col-md-3">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" class="form-control specialH2 width100" placeholder="Busqueda por nombre:">
+                <input type="text" id="nombre" class="form-control specialH2 width100" placeholder="Digite al menos 3 letras:">
             </div>
         </div>
     </div>
@@ -229,4 +230,4 @@ echo '<script> var base_url = "' . base_url . '"</script>';
     </div>
 </div>
 <script src="<?= base_url ?>js/mapa.js?<?php echo time(); ?>"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeXI4o0HJ8WLtu178RiSlNiJrGlb5l-nw&callback=initMap" async defer></script>

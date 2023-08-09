@@ -128,6 +128,7 @@ function initMap(){
 
 $( "#nombre" ).on( "keyup", function(){
     if($(this).val() != '' && $(this).val() != undefined){
+        $('.no_coincidence').css('display', 'none');
         if($(this).val().length > 2){
             hideInfoBlocks()
             var filteredMarkers = [];
@@ -155,27 +156,35 @@ $( "#nombre" ).on( "keyup", function(){
 });
 
 $('#provincias').on('change', function(){
-    hideInfoBlocks()
-    $('#nombre').val('');
-    let filteredMarkers = [];
-    let valCant = [];
-    var selectCantones = $('#cantones');
-    selectCantones.empty();
+    if($(this).val() != ''){
 
-    for(let datMap of markers){
-        if(datMap.provincia == $(this).val()){
-            filteredMarkers.push(datMap);
-            if(!valCant.includes(datMap.canton)){
-                selectCantones.append($('<option></option>', {value: datMap.canton, text: datMap.canton }));
-                valCant.push(datMap.canton);
+        hideInfoBlocks()
+        $('#nombre').val('');
+        let filteredMarkers = [];
+        let valCant = [];
+        var selectCantones = $('#cantones');
+        selectCantones.empty();
+    
+        for(let datMap of markers){
+            if(datMap.provincia == $(this).val()){
+                filteredMarkers.push(datMap);
+                if(!valCant.includes(datMap.canton)){
+                    selectCantones.append($('<option></option>', {value: datMap.canton, text: datMap.canton }));
+                    valCant.push(datMap.canton);
+                }
             }
         }
-    }
-    if (filteredMarkers.length > 0){
-        map.setCenter(filteredMarkers[0].getPosition());
-        showInfoBlocks(filteredMarkers[0].provincia);
+        if (filteredMarkers.length > 0){
+            map.setCenter(filteredMarkers[0].getPosition());
+            showInfoBlocks(filteredMarkers[0].provincia);
+        }else{
+            noCoincidence();
+        }
     }else{
-        noCoincidence();
+        var selectCantones = $('#cantones');
+        selectCantones.empty();
+        selectCantones.append($('<option></option>', {value: '', text: 'Todos' }));
+        showAllBlocks();
     }
 });
 
@@ -224,9 +233,13 @@ $('#servicios').on('change', function(){
     }
 });
 
+var servicesVal = [];
 var selectServicios = $('#servicios');
 for(let z=0;z<jsonServicios.length;z++){
-    selectServicios.append($('<option></option>', {value: jsonServicios[z].idServicio, text: jsonServicios[z].titulo}));
+    if(!servicesVal.includes(jsonServicios[z].idServicio)){
+        selectServicios.append($('<option></option>', {value: jsonServicios[z].idServicio, text: jsonServicios[z].titulo}));
+        servicesVal.push(jsonServicios[z].idServicio);
+    }
 }
 
 function hideInfoBlocks(){
@@ -235,8 +248,17 @@ function hideInfoBlocks(){
     $('.heredia').css('display', 'none');
     $('.limon').css('display', 'none');
     $('.guanacaste').css('display', 'none');
-    $('.puntarenas').css('display', 'none');                        
+    $('.puntarenas').css('display', 'none');
     $('.san_jose').css('display', 'none');
+}
+function showAllBlocks(){
+    $('.alajuela').css('display', 'flex');
+    $('.cartago').css('display', 'flex');
+    $('.heredia').css('display', 'flex');
+    $('.limon').css('display', 'flex');
+    $('.guanacaste').css('display', 'flex');
+    $('.puntarenas').css('display', 'flex');
+    $('.san_jose').css('display', 'flex');
 }
 function noCoincidence(){
     hideInfoBlocks();

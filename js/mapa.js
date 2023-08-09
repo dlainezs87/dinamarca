@@ -156,9 +156,10 @@ $( "#nombre" ).on( "keyup", function(){
 });
 
 $('#provincias').on('change', function(){
+    hideInfoBlocks();
+    
     if($(this).val() != ''){
 
-        hideInfoBlocks()
         $('#nombre').val('');
         let filteredMarkers = [];
         let valCant = [];

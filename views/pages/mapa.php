@@ -67,38 +67,39 @@ echo '<script> var base_url = "' . base_url . '"</script>';
         background-color: #104F9E;
         font-weight: bold;
         text-align: center;
-        width: 20%;
+        width: 12%;
     }
     .color2{
         background-color: #76BD41;
         font-weight: bold;
         text-align: center;
-        width: 20%;
+        width: 12%;
     }
     .color3{
         background-color: #F8F8F8;
         font-weight: bold;
         text-align: center;
-        width: 20%;
+        width: 12%;
     }
     .color4{
         background-color: #FFFFFF;
         font-weight: bold;
         color: black;
         text-align: center;
-        width: 20%;
+        width: 12%;
     }
     .mainLetter{
         font-size: 75px;
     }
     .grey{
         background-color: #F8F8F8;
-        width: 35%;
+        width: 45%;
+        min-width: 45%;
     }
     .grey2{
         background-color: #f0efef;
-        width: 30%;
-        min-width: 30%;
+        width: 45%;
+        min-width: 45%;
     }
     .alajuela{
         display: none;
@@ -120,6 +121,9 @@ echo '<script> var base_url = "' . base_url . '"</script>';
     }
     .san_jose{
         display: none;
+    }
+    .maxsize{
+        max-width: 128px;
     }
     @media (max-width: 479px) {
         #filter {
@@ -198,7 +202,17 @@ echo '<script> var base_url = "' . base_url . '"</script>';
                         onclick="showInfo(<?= $info ?>);"style="width:100%;<?php echo $map['principal'] == 'Y' ? 'display:flex;' : '';?>">
                         <div style="display:flex;flex:1;">
                             <div class="color<?= $counter ?>">
-                                <label class="mainLetter"><?= $primeraLetra ?></label>
+                                <?php 
+                                    if(!empty($map['imagen'])){
+                                ?>
+                                    <img class="maxsize" src="<?= base_url . 'images/mapa/' . $map['imagen'] ?>" alt="Imagen del Sitio">
+                                <?php 
+                                    }else{
+                                ?>
+                                        <label class="mainLetter"><?= $primeraLetra ?></label>
+                                <?php 
+                                    }
+                                ?>
                             </div>
                             <div class="grey" style="padding:3.5%;">
                                 <label><?= $map['nombre'] ?></label>
@@ -230,4 +244,4 @@ echo '<script> var base_url = "' . base_url . '"</script>';
     </div>
 </div>
 <script src="<?= base_url ?>js/mapa.js?<?php echo time(); ?>"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeXI4o0HJ8WLtu178RiSlNiJrGlb5l-nw&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>

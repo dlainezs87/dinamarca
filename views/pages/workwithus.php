@@ -93,6 +93,7 @@
 				$("#enviarInfo").prop('disabled', true);
 			},
 			success: function(datos){
+				console.log(datos);
 				let dat = datos;
 				if (dat.status) {
 					Swal.fire({
@@ -101,7 +102,7 @@
 						text: 'Estaremos en contacto lo antes posible'
 					});
                     window.setTimeout(function() {
-						window.location.href = "./?"
+						//window.location.href = "./?"
 					}, 3000);
 				} else {
 					Swal.fire({
@@ -110,7 +111,7 @@
 						text: 'En estos momentos no podemos procesar su solicitud. Pero escríbanos a servicioalcliente@ clinicadinamarca.com para mayor información'
 					});
                     window.setTimeout(function() {
-						window.location.href = "./?"
+						//window.location.href = "./?"
 					}, 3000);
                 }
 			}

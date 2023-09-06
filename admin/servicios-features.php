@@ -55,7 +55,7 @@ $productName = isset($_GET['description'])?$_GET['description']:'';
                                         ?>
                                         <tr>
                                             <td><?php echo $row['feature']?></td>
-                                            <td><?php echo $row['description']?></td>
+                                            <td><?php echo utf8_encode($row['description'])?></td>
                                         <td class="text-center">
                                             <a href="servicios-features-actions.php?del=true&id=<?php echo $row['id']?>&&idProduct=<?=$idProduct?> " onclick="return confirm('Desea continuar? Se eliminará el registro permanetemente')"><i class="fas fa-trash-alt"></i></a>
                                         </td>

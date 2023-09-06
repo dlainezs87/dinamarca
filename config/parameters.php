@@ -1,4 +1,4 @@
 <?php
-define("base_url", "http://localhost/dinamarca/");
+define("base_url", "https://dinamarcav2.tecnosula.com/");
 
 

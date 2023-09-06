@@ -1,7 +1,7 @@
 <?php
 class Prospecto{
     public function saveCandidateData($Data){
-        include("conn.php");
+        include("../config/conexion.php");
         $Nombre   = (isset($Data['nombre'])) ? filter_var($Data['nombre'], FILTER_SANITIZE_STRING): '';
         $Email    = (isset($Data['email'])) ? filter_var($Data['email'], FILTER_SANITIZE_STRING): '';
         $Telefono = (isset($Data['telefono'])) ? filter_var($Data['telefono'], FILTER_SANITIZE_STRING): '';

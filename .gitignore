@@ -1,1 +1,7 @@
 /config/
+config/conexion.php
+config/parameters.php
+.gitignore
+.user.ini
+web.config
+admin/conn.php

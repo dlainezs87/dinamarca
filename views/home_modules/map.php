@@ -369,7 +369,7 @@
 								<div class="col-lg-6">
 									<div>
 										<input name="name" type="text" id="form3Example1" placeholder="Nombre:" required />
-									</div> required
+									</div>
 								</div>
 								<div class="col-lg-6">
 									<div>
@@ -378,7 +378,7 @@
 								</div>
 							</div>
 							<div>
-								<input name="email" type="email" id="form3Example1" type="email" placeholder="Email:" required />
+								<input name="email" type="email" id="form3Example1" type="email" placeholder="Correo electrónico:" required />
 							</div>
 							<div>
 								<input name="message" type="text" id="form3Example1" type="text" class="message-box" placeholder="Mensaje:" required />
@@ -431,7 +431,7 @@
 					});
 
 					window.setTimeout(function() {
-						window.location.href = "./?pag=contact"
+						window.location.href = "./"
 					}, 4000);
 
 				} else {

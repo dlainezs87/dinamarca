@@ -4,7 +4,6 @@
    
 <title>Clinicas Dinamarca</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,user scalable=no, initial-scale=1.0, maximun-scale=1.0">
   <meta name="description" content="">
   <meta name="keywords" content="">
   <link rel="icon" href="<?=base_url?>images/principal/favicon.png">
@@ -34,9 +33,6 @@
 <link href="css/style.css" rel="stylesheet" />
 <!-- responsive style -->
 <link href="css/responsive.css" rel="stylesheet" />
-
-
-
    <!--CUSTOM STYLES-->
   <link href="/dist/general-styles.css">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -49,17 +45,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="" crossorigin="anonymous"></script>
 
 
-<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-<link rel="stylesheet" href="css/style-filter.css"> <!-- Resource style -->
-
-
-<!-- Include Unite Gallery core files -->
-				<script src='unitegallery/js/unitegallery.min.js' type='text/javascript'  ></script>
-				<link  href='unitegallery/css/unite-gallery.css' rel='stylesheet' type='text/css' />
-				
-				<!-- include Unite Gallery Theme Files -->
-				
-				<script src='unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js' type='text/javascript'></script>
       <script>    
     
     $(window).on("load",function(){

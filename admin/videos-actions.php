@@ -6,32 +6,13 @@ if(isset($_POST['action'])){
         $titulo = addslashes($_POST['titulo']);
         $video = addslashes($_POST['video']);
         //insert
-        $sql = "insert into videos(titulo)
+        $sql = "insert into videos(titulo,video)
                             values(
-                                '".$titulo."'
+                                '".$titulo."',
+								'".$video."'
                             )";
         if($mysqli->query($sql)){ 
-            $idgen = $mysqli->insert_id;
-           $archivo = $_FILES['file_video']['name'];
-           if (isset($archivo) && $archivo != "") {
-               $tipo = $_FILES['file_video']['type'];
-               $tamano = $_FILES['file_video']['size'];
-               $temp = $_FILES['file_video']['tmp_name'];
-               $nombrefinal = $archivo;
-
-                    if (move_uploaded_file($temp, '../assets/videos/'.$nombrefinal)) {
-                        chmod('../assets/videos/'.$nombrefinal, 0777);
-                        $sqlima = "update videos set video = '".$nombrefinal."' where id = " . $idgen;
-
-                        $mysqli->query($sqlima);
-                    }else {
-                        $errorimg = true;
-                    }
-                
-           }
            ?><script> window.open('videos.php?ok','_self');</script><?php
-
-
         }else{ 
             ?><script> window.open('videos.php?err','_self');</script><?php
         }

@@ -3,7 +3,7 @@
 <footer class="footer_section">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-lg-4 footer_col">
+        <div class="col-lx-4 col-md-6 col-lg-4 footer_col">
           <div class="footer_contact">
             <h4>
               Informacion de contacto
@@ -26,7 +26,7 @@
             </a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3 footer_col">
+        <div class="col-lx-4 col-md-6 col-lg-4 footer_col">
           <div class="footer_detail">
             <h4>
               Nosotros
@@ -36,7 +36,7 @@
             </p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-2 mx-auto footer_col">
+        <div class="col-lx-4 col-md-6 col-lg-4 footer_col">
           <div class="footer_link_box">
             <h4>
               Links
@@ -69,17 +69,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3 footer_col ">
-          <h4>
-            Boletín de Noticias
-          </h4>
-          <form action="#">
-            <input type="email" placeholder="Escriba su email" />
-            <button type="submit">
-              Subscribirse
-            </button>
-          </form>
-        </div>
+     
       </div>
       <div class="footer-info">
         <p>
@@ -115,12 +105,8 @@
   <!-- custom js -->
   <script type="text/javascript" src="js/custom.js"></script>
   <!--product filter-->
-  <script src="js/main.js"></script>
-  <script src="js/jquery.mixitup.min.js"></script>
-  
-
-
   <script>
+	  /**
     'use strict';
     var multiItemSlider = (function () {
       return function (selector, config) {
@@ -224,7 +210,7 @@
     }());
 
     var slider = multiItemSlider('.slider')
-
+**/
   </script>
 
   <script>

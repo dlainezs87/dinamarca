@@ -244,4 +244,4 @@ echo '<script> var base_url = "' . base_url . '"</script>';
     </div>
 </div>
 <script src="<?= base_url ?>js/mapa.js?<?php echo time(); ?>"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAENtpsWwKhg4SnStNlNe_ar5G8poZHH60&callback=initMap" async defer></script>

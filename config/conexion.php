@@ -1,9 +1,9 @@
 <?php 
-$mysqli = '';
-$server = "localhost";
-$user = "root";
-$pass = "";
-$database = "dinamarca";
+
+$server = "localhost:3306";
+$user = "atheneal_dinamarca";
+$pass = "j!m1Rd046";
+$database = "atheneal_dinamarca";
 
 $mysqli = new mysqli($server,$user,$pass,$database);
 
@@ -12,5 +12,4 @@ if ($mysqli -> connect_errno) {
     exit();
   }
 //$mysqli->close();
-
 ?>

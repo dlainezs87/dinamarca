@@ -197,7 +197,7 @@ $('#cantones').on('change', function(){
     for(let datMap of markers){
         if(datMap.canton == $(this).val()){
             filteredMarkers.push(datMap);
-        }
+        } 
     }
     if (filteredMarkers.length > 0) {
         map.setCenter(filteredMarkers[0].getPosition());

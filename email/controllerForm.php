@@ -1,8 +1,7 @@
 <?php 
 
 //GET VARS
-$emailBusiness = 'dlainez2587@gmail.com';
-
+$emailBusiness = 'olman1000@gmail.com';
 $mensajeCompleto="";
 $emailSend = !empty($_POST['email'])?filter_var(addslashes($_POST['email']), FILTER_SANITIZE_EMAIL):'';
 $name = !empty($_POST['name'])?filter_var(addslashes($_POST['name']), FILTER_SANITIZE_STRING):'';
@@ -28,9 +27,9 @@ $mail->Host = 'tecnosula.com';
 $mail->Port = 25;
 $mail->SMTPAuth = true;
 $mail->isHTML(true);
-$mail->Username = 'dlainez2587@gmail.com';
-$mail->Password = 'rrope2587';
-$mail->setFrom('contacto@tecnosula.com', "Clinica dinamarca");
+$mail->Username = 'info@tecnosula.com';
+$mail->Password = 'C0ntact0/2022*1';
+$mail->setFrom('info@tecnosula.com', 'Clínica Dinamarca');
 
  
     $mail->addAddress($emailBusiness, 'Cliente');

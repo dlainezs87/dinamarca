@@ -17,7 +17,7 @@ class cotizacion{
         $msnData['title'] = "Quote Request";
         $msnData['info'] = "We have received your request #".$code.", we will glad to send you an answer as soon as possible";
         $msnData['intro'] = "Hello, $nombre";
-        $msnData['url'] = "https://kitcab.tecnosula.com/assets/images/principal/logo.png";
+        $msnData['url'] = "https://dinamarcav2.tecnosula.com/images/logo-CD.png";
         $msnData['table'] = $table;
         $newTemplate = new principalController();
         $respTemplate = $newTemplate->sendEmailForQuote($msnData);
@@ -27,7 +27,7 @@ class cotizacion{
       
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->SMTPDebug = SMTP::DEBUG_OFF ;//SMTP::DEBUG_SERVER;  // SMTP::DEBUG_OFF = off;
+        $mail->SMTPDebug = SMTP::DEBUG_OFF;//SMTP::DEBUG_SERVER;  // SMTP::DEBUG_OFF = off;
         $mail->SMTPAutoTLS = false;
         $mail->SMTPSecure = false;
         $mail->Host = 'tecnosula.com';
@@ -35,13 +35,13 @@ class cotizacion{
         $mail->Port = 25;
         $mail->SMTPAuth = true;
         $mail->isHTML(true);
-        $mail->Username = 'contacto@tecnosula.com';
+        $mail->Username = 'info@tecnosula.com';
         $mail->Password = 'C0ntact0/2022*1';
-        $mail->setFrom('contacto@tecnosula.com', 'KitCab');
+        $mail->setFrom('info@tecnosula.com', 'Clínicas Dinamarca');
 
 
-            $mail->addAddress('olman.monge@tecnosula.com', 'Cliente');
-            $mail->Subject = 'Quote '.$code;
+            $mail->addAddress('olman1000@gmail.com', 'Cliente');
+            $mail->Subject = 'Cotización '.$code;
             $mail->Body = $respTemplate; 
 
         //ENVIO DE CORREO
@@ -59,8 +59,8 @@ class cotizacion{
         require_once '../../config/parameters.php';
         
         $table = !empty($data)?$this->makeTableFromData($data,true):'';
-        $msnData['title'] = "Quote Request";
-        $msnData['info'] = "You have received a request #".$code." for quotes with the next information";
+        $msnData['title'] = "Cotización";
+        $msnData['info'] = "Ha recibido una solicitud de cotización #".$code." con la siguiente información";
         $intro = '';
         $intro .= '<ul>';
         $intro .= '<li>Name:'.utf8_decode($nombre).'</li>';
@@ -72,7 +72,7 @@ class cotizacion{
         $intro .= '<li>Phone Number: '.$telefono.'</li>';
         $intro .= '</ul>';
         $msnData['intro'] = $intro;
-        $msnData['url'] = "https://kitcab.tecnosula.com/assets/images/principal/logo.png";
+        $msnData['url'] = "https://dinamarcav2.tecnosula.com/images/logo-CD.png";
         $msnData['table'] = $table;
         $newTemplate = new principalController();
         $respTemplate = $newTemplate->sendEmailForQuote($msnData);
@@ -89,11 +89,11 @@ class cotizacion{
         $mail->Port = 25;
         $mail->SMTPAuth = true;
         $mail->isHTML(true);
-        $mail->Username = 'contacto@tecnosula.com';
+        $mail->Username = 'info@tecnosula.com';
         $mail->Password = 'C0ntact0/2022*1';
-        $mail->setFrom('contacto@tecnosula.com', 'KitCab');
+        $mail->setFrom('info@tecnosula.com', 'Clínicas Dinamarca');
 
-            $mail->addAddress('olman.monge@tecnosula.com', 'Cliente');
+            $mail->addAddress('olman1000@gmail.com', 'Cliente');
             $mail->Subject = utf8_decode('Quote ').$code;
             $mail->Body = $respTemplate; 
 

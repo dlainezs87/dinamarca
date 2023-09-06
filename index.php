@@ -7,8 +7,7 @@ require_once"views/frame/header.php";
 if(!isset($_GET['pag'])){
   require_once"views/home_modules/slider.php";  
   require_once"views/home_modules/services.php";
-  require_once"views/home_modules/map.php";
-  require_once"views/home_modules/map.php";
+  require_once"views/home_modules/map.php"; 
   require_once"views/home_modules/featuredproducts.php";
   require_once"views/home_modules/clients.php";
   require_once"views/home_modules/faq.php";
